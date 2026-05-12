@@ -1,0 +1,26 @@
+[
+  {
+    "id": "brand_uniqlo",
+    "name": "Uniqlo",
+    "slug": "uniqlo",
+    "tier": "basics"
+  },
+  {
+    "id": "brand_cos",
+    "name": "COS",
+    "slug": "cos",
+    "tier": "modern"
+  },
+  {
+    "id": "brand_coach",
+    "name": "Coach",
+    "slug": "coach",
+    "tier": "accessible_luxury"
+  },
+  {
+    "id": "brand_nb",
+    "name": "New Balance",
+    "slug": "new-balance",
+    "tier": "sport"
+  }
+]

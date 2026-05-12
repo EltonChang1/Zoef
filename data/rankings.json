@@ -1,0 +1,26 @@
+[
+  {
+    "id": "list_001",
+    "owner_user_id": "user_001",
+    "title": "Best Fall Pieces Under $200",
+    "category": "seasonal",
+    "visibility": "public",
+    "entries": [
+      {
+        "product_id": "product_jacket_001",
+        "rank": 1,
+        "note": "Great shape and texture for daily wear."
+      },
+      {
+        "product_id": "product_pants_001",
+        "rank": 2,
+        "note": "Strong value and easy to style."
+      },
+      {
+        "product_id": "product_shoe_001",
+        "rank": 3,
+        "note": "Comfortable with wide silhouettes."
+      }
+    ]
+  }
+]

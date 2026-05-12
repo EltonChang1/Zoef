@@ -1,0 +1,62 @@
+[
+  {
+    "id": "product_pants_001",
+    "canonical_name": "Wide-Leg Pleated Pants",
+    "brand_id": "brand_uniqlo",
+    "category": "pants",
+    "subcategory": "wide_leg_pants",
+    "price_min": 49.9,
+    "price_max": 59.9,
+    "currency": "USD",
+    "materials": ["cotton", "polyester"],
+    "colors": ["black", "cream", "gray"],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "tags": ["minimal", "office", "wide leg", "affordable"],
+    "image_url": "https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "product_jacket_001",
+    "canonical_name": "Relaxed Wool-Blend Jacket",
+    "brand_id": "brand_cos",
+    "category": "outerwear",
+    "subcategory": "jacket",
+    "price_min": 150,
+    "price_max": 190,
+    "currency": "USD",
+    "materials": ["wool", "polyamide"],
+    "colors": ["charcoal", "camel"],
+    "sizes": ["XS", "S", "M", "L"],
+    "tags": ["fall", "workwear", "relaxed fit"],
+    "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "product_bag_001",
+    "canonical_name": "Brooklyn Shoulder Bag",
+    "brand_id": "brand_coach",
+    "category": "bags",
+    "subcategory": "shoulder_bag",
+    "price_min": 295,
+    "price_max": 350,
+    "currency": "USD",
+    "materials": ["leather"],
+    "colors": ["black", "chalk", "maple"],
+    "sizes": ["one_size"],
+    "tags": ["everyday", "quiet luxury", "structured"],
+    "image_url": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": "product_shoe_001",
+    "canonical_name": "9060 Lifestyle Sneaker",
+    "brand_id": "brand_nb",
+    "category": "shoes",
+    "subcategory": "sneakers",
+    "price_min": 140,
+    "price_max": 160,
+    "currency": "USD",
+    "materials": ["mesh", "suede", "rubber"],
+    "colors": ["sea_salt", "rain_cloud"],
+    "sizes": ["7", "8", "9", "10", "11", "12"],
+    "tags": ["streetwear", "everyday", "chunky"],
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+  }
+]

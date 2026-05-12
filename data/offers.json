@@ -1,0 +1,50 @@
+[
+  {
+    "id": "offer_uniqlo_001",
+    "product_id": "product_pants_001",
+    "retailer_name": "Uniqlo US",
+    "product_url": "https://www.uniqlo.com",
+    "affiliate_url": "https://www.uniqlo.com",
+    "current_price": 49.9,
+    "original_price": 59.9,
+    "currency": "USD",
+    "available_sizes": ["S", "M", "L"],
+    "availability_status": "in_stock"
+  },
+  {
+    "id": "offer_cos_001",
+    "product_id": "product_jacket_001",
+    "retailer_name": "COS US",
+    "product_url": "https://www.cos.com",
+    "affiliate_url": "https://www.cos.com",
+    "current_price": 180,
+    "original_price": 190,
+    "currency": "USD",
+    "available_sizes": ["S", "M"],
+    "availability_status": "low_stock"
+  },
+  {
+    "id": "offer_coach_001",
+    "product_id": "product_bag_001",
+    "retailer_name": "Coach",
+    "product_url": "https://www.coach.com",
+    "affiliate_url": "https://www.coach.com",
+    "current_price": 325,
+    "original_price": 350,
+    "currency": "USD",
+    "available_sizes": ["one_size"],
+    "availability_status": "in_stock"
+  },
+  {
+    "id": "offer_nb_001",
+    "product_id": "product_shoe_001",
+    "retailer_name": "New Balance",
+    "product_url": "https://www.newbalance.com",
+    "affiliate_url": "https://www.newbalance.com",
+    "current_price": 150,
+    "original_price": 160,
+    "currency": "USD",
+    "available_sizes": ["8", "9", "10", "11"],
+    "availability_status": "in_stock"
+  }
+]

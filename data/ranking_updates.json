@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ru_001",
+    "type": "movement_up",
+    "message": "COS Relaxed Wool-Blend Jacket moved to #1 in Best Fall Pieces Under $200.",
+    "product_id": "product_jacket_001",
+    "created_at": "2026-05-12T11:45:00Z"
+  },
+  {
+    "id": "ru_002",
+    "type": "new_entry",
+    "message": "New Balance 9060 entered top rankings for everyday sneakers.",
+    "product_id": "product_shoe_001",
+    "created_at": "2026-05-12T10:12:00Z"
+  },
+  {
+    "id": "ru_003",
+    "type": "save_spike",
+    "message": "Brooklyn Shoulder Bag is trending with users sharing your taste profile.",
+    "product_id": "product_bag_001",
+    "created_at": "2026-05-12T09:03:00Z"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "user_001",
+    "name": "Zoe User",
+    "username": "zoeuser",
+    "style_tags": ["minimal", "streetwear", "quiet luxury"],
+    "favorite_brands": ["brand_uniqlo", "brand_cos", "brand_coach"],
+    "budget_min": 30,
+    "budget_max": 350
+  }
+]

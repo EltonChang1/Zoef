@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoe Fashion — Unified Fashion Discovery + Ranking App Spec</title>
+  <style>
+    :root {
+      --bg: #fbf9f6;
+      --paper: #ffffff;
+      --soft: #f7f3ee;
+      --soft-2: #f1ebe4;
+      --border: #e7ded4;
+      --text: #2a211d;
+      --muted: #6a584c;
+      --muted-2: #8c7c70;
+      --accent: #6f4b52;
+      --accent-2: #71715f;
+      --rank-up: #547c65;
+      --rank-down: #8b5d5d;
+      --rank-new: #8b6c3f;
+      --code: #1f1916;
+      --shadow: 0 18px 50px rgba(42, 33, 29, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 72px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffffff 0%, #f7f3ee 56%, #efe6df 100%);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 44px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(36px, 7vw, 68px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 30px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin-top: 28px;
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h4 {
+      margin: 22px 0 8px;
+      font-size: 16px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin: 10px 0; }
+
+    a { color: var(--accent); }
+
+    .lead {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.5;
+      margin-top: 18px;
+    }
+
+    .tagline {
+      display: inline-flex;
+      margin-top: 20px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(42, 33, 29, 0.05);
+      margin-bottom: 24px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--soft);
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    .toc a:hover { background: var(--soft-2); }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      margin: 16px 0;
+      box-shadow: 0 10px 32px rgba(42, 33, 29, 0.05);
+    }
+
+    .soft-card {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      margin: 14px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    ul, ol { padding-left: 22px; }
+
+    li { margin: 7px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: block;
+      overflow-x: auto;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      min-width: 150px;
+    }
+
+    th {
+      background: var(--soft);
+      color: var(--text);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+    }
+
+    code {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      padding: 2px 5px;
+      border-radius: 7px;
+    }
+
+    pre {
+      background: var(--code);
+      color: #f2ece5;
+      padding: 18px;
+      border-radius: 20px;
+      overflow-x: auto;
+      line-height: 1.5;
+      box-shadow: 0 12px 30px rgba(42, 33, 29, 0.14);
+    }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin: 24px 0;
+      align-items: start;
+    }
+
+    .phone {
+      width: min(100%, 310px);
+      min-height: 560px;
+      margin: 0 auto;
+      background: #fff;
+      border: 10px solid #1f1916;
+      border-radius: 42px;
+      box-shadow: 0 24px 70px rgba(42, 33, 29, 0.20);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone .screen {
+      padding: 14px;
+      min-height: 540px;
+      background: #fbf9f6;
+    }
+
+    .phone-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 850;
+      margin: 6px 0 12px;
+    }
+
+    .searchbar {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px 12px;
+      color: var(--muted-2);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .story-row {
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .story {
+      flex: 0 0 54px;
+      height: 68px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #e7ded4, #c08c93);
+      border: 2px solid #fff;
+    }
+
+    .mini-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .image-block {
+      height: 150px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #e7ded4, #b8aa9b 58%, #6f4b52);
+      margin-bottom: 10px;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .small-product {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 9px;
+    }
+
+    .product-img {
+      height: 82px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f1ebe4, #ddd4ca);
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: var(--muted-2);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .strong { font-weight: 800; }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: rgba(255,255,255,0.96);
+      border-top: 1px solid var(--border);
+      padding: 9px 6px 12px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .bottom-nav div:first-child { color: var(--accent); }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      background: #fff;
+      border-radius: 0 16px 16px 0;
+      margin: 18px 0;
+    }
+
+    .success { color: var(--rank-up); font-weight: 800; }
+    .danger { color: var(--rank-down); font-weight: 800; }
+    .new { color: var(--rank-new); font-weight: 800; }
+
+    .footer-note {
+      margin-top: 56px;
+      color: var(--muted-2);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      header { padding: 28px; border-radius: 24px; }
+      h2 { font-size: 25px; }
+      .lead { font-size: 17px; }
+      .card { padding: 18px; border-radius: 20px; }
+      .page { padding: 24px 14px 54px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="eyebrow">Mobile Product + Engineering Build Spec</div>
+      <h1>Zoe Fashion</h1>
+      <p class="lead">A minimal, addictive phone app that pulls clothing, shoes, bags, accessories, and fashion drops from many brand and retailer sources into one unified place, then lets users browse, compare side by side, rank, save, and decide what is actually worth buying.</p>
+      <div class="tagline">Find what is actually worth wearing.</div>
+      <p><strong>Execution note:</strong> Use <code>PRD.md</code> as the implementation source of truth and use this file as the visual/product intent reference.</p>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+      <a href="#north-star">1. North Star</a>
+      <a href="#positioning">2. Positioning</a>
+      <a href="#catalog">3. Unified Catalog</a>
+      <a href="#architecture">4. Technical Architecture</a>
+      <a href="#navigation">5. Navigation</a>
+      <a href="#screens">6. Screen Specs</a>
+      <a href="#comparison">7. Compare System</a>
+      <a href="#ranking">8. Ranking System</a>
+      <a href="#addictive">9. Retention Loops</a>
+      <a href="#ui">10. Minimal UI Rules</a>
+      <a href="#data-model">11. Data Model</a>
+      <a href="#apis">12. API + Ingestion</a>
+      <a href="#mvp">13. MVP Scope</a>
+      <a href="#agent">14. Coding Agent Instructions</a>
+    </nav>
+
+    <section id="north-star">
+      <h2>1. Product North Star</h2>
+      <div class="card">
+        <h3>Core product sentence</h3>
+        <p><strong>Zoe Fashion is a social fashion ranking and comparison app where users can browse clothing, shoes, bags, accessories, and drops from many brands in one place, compare items side by side, and see what people with taste are ranking right now.</strong></p>
+        <h3>Core trigger</h3>
+        <p>The app should be opened whenever a user wants to browse clothes, dress better, check new drops, compare options, save pieces, or make a purchase decision.</p>
+        <h3>Behavior to create</h3>
+        <p>Users should feel: <strong>“When I want to look better or buy something, I open Zoe first.”</strong></p>
+      </div>
+
+      <div class="grid">
+        <div class="soft-card">
+          <h4>What Zoe is</h4>
+          <ul>
+            <li>A universal fashion discovery layer.</li>
+            <li>A side-by-side comparison tool.</li>
+            <li>A ranked wishlist and taste profile.</li>
+            <li>A feed of fashion drops, restocks, alternatives, and ranking updates.</li>
+            <li>A social proof layer before purchasing.</li>
+          </ul>
+        </div>
+        <div class="soft-card">
+          <h4>What Zoe is not</h4>
+          <ul>
+            <li>Not a full marketplace at launch.</li>
+            <li>Not a cluttered shopping search engine.</li>
+            <li>Not a closet-upload app first.</li>
+            <li>Not a discount/deal app.</li>
+            <li>Not a complicated analytics dashboard.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="positioning">
+      <h2>2. Positioning and Product Promise</h2>
+      <div class="card">
+        <h3>Positioning</h3>
+        <p><strong>A minimal social fashion app for discovering and comparing the best pieces across the internet.</strong></p>
+        <p>Zoe should combine:</p>
+        <ul>
+          <li><strong>Lyst-style breadth:</strong> many brands and retailers in one place.</li>
+          <li><strong>Instagram-style browsing:</strong> visual, fast, addictive, phone-native.</li>
+          <li><strong>RedNote-style utility:</strong> useful discovery and searchable answers.</li>
+          <li><strong>Beli-style ranking:</strong> personal and community rankings as the core differentiator.</li>
+        </ul>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>User situation</th>
+            <th>Zoe answer</th>
+            <th>Feature needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>“I want to browse clothes.”</td>
+            <td>Open Home feed for ranked new finds, creator picks, drops, and saved brands.</td>
+            <td>Personalized Home feed</td>
+          </tr>
+          <tr>
+            <td>“I’m choosing between two jackets.”</td>
+            <td>Add both to comparison and view price, fit, material, rank, saves, reviews, and availability side by side.</td>
+            <td>Compare tray + compare page</td>
+          </tr>
+          <tr>
+            <td>“I want the designer look for less.”</td>
+            <td>Open Alternatives ranking for the expensive item.</td>
+            <td>Alternative engine</td>
+          </tr>
+          <tr>
+            <td>“I want to see what is worth buying this week.”</td>
+            <td>Open ranked Drops and Restocks.</td>
+            <td>Drop feed + restock feed</td>
+          </tr>
+          <tr>
+            <td>“I trust this creator’s style.”</td>
+            <td>Follow their ranked lists and get ranking update notifications.</td>
+            <td>Creator rankings + Rank Updates</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="catalog">
+      <h2>3. Unified Fashion Catalog</h2>
+      <div class="card">
+        <h3>Main product requirement</h3>
+        <p>Zoe needs a unified product catalog that aggregates fashion items from many brand and retailer sources so users can browse everything in one place.</p>
+        <p>This catalog should include:</p>
+        <div class="pill-row">
+          <span class="pill">Clothing</span>
+          <span class="pill">Shoes</span>
+          <span class="pill">Bags</span>
+          <span class="pill">Accessories</span>
+          <span class="pill">Jewelry</span>
+          <span class="pill">Watches</span>
+          <span class="pill">Activewear</span>
+          <span class="pill">Streetwear</span>
+          <span class="pill">Designer</span>
+          <span class="pill">Affordable basics</span>
+          <span class="pill">Resale listings later</span>
+        </div>
+      </div>
+
+      <h3>Catalog goals</h3>
+      <div class="grid">
+        <div class="soft-card">
+          <h4>1. One place to browse</h4>
+          <p>Users should not need to open ten brand websites. Zoe should normalize products into one clean browsing experience.</p>
+        </div>
+        <div class="soft-card">
+          <h4>2. Easy comparison</h4>
+          <p>Users should compare similar items by price, material, fit, quality signal, popularity, ranking, availability, and style.</p>
+        </div>
+        <div class="soft-card">
+          <h4>3. Ranking layer</h4>
+          <p>Every product should be rankable into personal lists, community lists, creator lists, and alternative lists.</p>
+        </div>
+        <div class="soft-card">
+          <h4>4. Decision layer</h4>
+          <p>Zoe should help users decide whether something is worth buying, not just display product inventory.</p>
+        </div>
+      </div>
+
+      <h3>Source priority</h3>
+      <ol>
+        <li><strong>Official brand or retailer APIs</strong> where available.</li>
+        <li><strong>Affiliate network product feeds</strong> such as product catalog APIs, CSV, XML, or JSON feeds.</li>
+        <li><strong>Retailer product feed partnerships</strong> for new arrivals, price, image, size, availability, and URL.</li>
+        <li><strong>Public product pages only where permitted</strong> by terms of service and robots.txt. Do not design the product around unauthorized scraping.</li>
+        <li><strong>Manual/editorial seed catalog</strong> for MVP if APIs are not ready.</li>
+      </ol>
+
+      <div class="note">
+        <strong>Compliance rule:</strong> Use official APIs, affiliate feeds, partner feeds, or permitted public catalog access. Avoid unauthorized scraping. The coding agent should implement source adapters so ingestion methods can vary by brand while the app sees one normalized catalog.
+      </div>
+    </section>
+
+    <section id="architecture">
+      <h2>4. Technical Architecture</h2>
+      <div class="card">
+        <h3>High-level architecture</h3>
+        <pre><code>Mobile App
+  ├── Home Feed
+  ├── Search / Explore
+  ├── Compare Tray
+  ├── Rank Updates
+  ├── Item Detail
+  ├── Wishlist
+  └── Profile
+
+Backend API
+  ├── Auth + User Profile Service
+  ├── Product Catalog Service
+  ├── Brand / Retailer Adapter Service
+  ├── Search Service
+  ├── Ranking Service
+  ├── Feed Recommendation Service
+  ├── Compare Service
+  ├── Wishlist / Alert Service
+  ├── Social Graph Service
+  └── Notification Service
+
+Data Stores
+  ├── Users
+  ├── Products
+  ├── Brands
+  ├── Retailer Offers
+  ├── Rankings
+  ├── Saves / Wishlists
+  ├── Feed Events
+  ├── Product Embeddings
+  └── Price / Availability History</code></pre>
+      </div>
+
+      <h3>Catalog ingestion pipeline</h3>
+      <pre><code>Source API / Feed / Partner Catalog
+  → Source Adapter
+  → Raw Product Staging
+  → Normalization
+  → Deduplication / Product Matching
+  → Enrichment
+  → Search Index
+  → Recommendation Index
+  → App Product Catalog</code></pre>
+
+      <h3>Important backend concepts</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Purpose</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Source Adapter</td>
+            <td>Connects to one brand, retailer, affiliate feed, or catalog source.</td>
+            <td><code>uniqlo_adapter</code>, <code>ssense_adapter</code>, <code>shopify_brand_adapter</code></td>
+          </tr>
+          <tr>
+            <td>Raw Product</td>
+            <td>Stores untouched incoming product data for debugging and reprocessing.</td>
+            <td>Original API response from brand.</td>
+          </tr>
+          <tr>
+            <td>Canonical Product</td>
+            <td>The normalized Zoe product object users see.</td>
+            <td>“Wide-Leg Pleated Pants” with normalized category, price, brand, images.</td>
+          </tr>
+          <tr>
+            <td>Retailer Offer</td>
+            <td>A specific buyable listing for a canonical product.</td>
+            <td>Same sneaker available from Nike, SSENSE, StockX, and GOAT.</td>
+          </tr>
+          <tr>
+            <td>Product Match</td>
+            <td>Deduplicates the same item across sources.</td>
+            <td>Same Adidas Samba SKU from multiple stores.</td>
+          </tr>
+          <tr>
+            <td>Ranking Event</td>
+            <td>Records when a user ranks, moves, adds, or removes an item.</td>
+            <td>“Moved Coach Brooklyn Bag from #5 to #2.”</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="navigation">
+      <h2>5. Mobile Navigation</h2>
+      <div class="card">
+        <h3>Five-tab bottom navigation</h3>
+        <p>The app should be phone-first, simple, and thumb-friendly. Use five fixed tabs:</p>
+        <ol>
+          <li><strong>Home</strong> — personalized browse feed.</li>
+          <li><strong>Search</strong> — search and explore all catalog items, brands, lists, and creators.</li>
+          <li><strong>Compare</strong> — side-by-side comparison tray and saved comparisons.</li>
+          <li><strong>Rank</strong> — ranking updates from friends, creators, brands, and community lists.</li>
+          <li><strong>Profile</strong> — user’s style identity, lists, wishlist, saves, and settings.</li>
+        </ol>
+      </div>
+
+      <div class="note">
+        <strong>Change from original Zoe:</strong> This version should include a dedicated <strong>Compare</strong> tab because side-by-side item comparison is central to fashion purchase decisions. Rank Updates can still exist as the Rank tab.
+      </div>
+
+      <div class="phone-row">
+        <div class="phone">
+          <div class="screen">
+            <div class="phone-top"><span>Zoe</span><span>♡ 🔔</span></div>
+            <div class="searchbar">Search clothes, shoes, brands...</div>
+            <div class="story-row"><div class="story"></div><div class="story"></div><div class="story"></div><div class="story"></div></div>
+            <div class="mini-card">
+              <div class="image-block"></div>
+              <div class="strong">Best new fall jackets</div>
+              <div class="meta">Ranked by people with similar style · Updated today</div>
+            </div>
+            <div class="item-grid">
+              <div class="small-product"><div class="product-img"></div><div class="strong">Uniqlo jacket</div><div class="meta">#1 under $100</div></div>
+              <div class="small-product"><div class="product-img"></div><div class="strong">COS trousers</div><div class="meta">Moved up 8 spots</div></div>
+            </div>
+            <div class="bottom-nav"><div>Home</div><div>Search</div><div>Compare</div><div>Rank</div><div>Me</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Minimal navigation rules</h3>
+          <ul>
+            <li>No cluttered menus on the main surface.</li>
+            <li>No permanent center Add button.</li>
+            <li>Every product card should have three simple actions: <strong>Save</strong>, <strong>Compare</strong>, <strong>Rank</strong>.</li>
+            <li>Creation lives in Profile, item pages, ranking pages, or contextual actions.</li>
+            <li>Search must always be one tap away.</li>
+            <li>Compare must be one tap away because it is the main purchase-decision feature.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens">
+      <h2>6. Screen-by-Screen Specs</h2>
+
+      <h3>6.1 Home Feed</h3>
+      <div class="card">
+        <p><strong>Purpose:</strong> Make users want to open the app whenever they want to browse fashion or dress better.</p>
+        <h4>Home feed modules</h4>
+        <ul>
+          <li><strong>For You:</strong> personalized ranked items based on taste, brands, budget, saves, and rankings.</li>
+          <li><strong>New Drops:</strong> new arrivals from followed brands and trending sources.</li>
+          <li><strong>Restocks:</strong> items back in stock, especially saved sizes/colors.</li>
+          <li><strong>Best Alternatives:</strong> ranked cheaper alternatives to designer pieces.</li>
+          <li><strong>Trending Now:</strong> items rapidly gaining saves, rankings, or creator mentions.</li>
+          <li><strong>Creator Picks:</strong> ranked lists from people the user follows.</li>
+          <li><strong>Friend Activity:</strong> friends’ saves, rankings, list updates, and comparison shares.</li>
+          <li><strong>Continue Comparing:</strong> pending side-by-side comparisons.</li>
+        </ul>
+        <h4>Product card actions</h4>
+        <div class="pill-row">
+          <span class="pill">Save</span>
+          <span class="pill">Compare</span>
+          <span class="pill">Rank</span>
+          <span class="pill">Open</span>
+          <span class="pill">Share</span>
+        </div>
+      </div>
+
+      <h3>6.2 Search / Explore</h3>
+      <div class="card">
+        <p><strong>Purpose:</strong> Let users search the entire fashion catalog and discover ranked answers.</p>
+        <h4>Search examples</h4>
+        <ul>
+          <li>best black loafers</li>
+          <li>Uniqlo wide pants</li>
+          <li>The Row alternatives</li>
+          <li>best men’s fall jackets</li>
+          <li>best petite jeans</li>
+          <li>best everyday tote under $300</li>
+          <li>best sneakers to wear with wide pants</li>
+          <li>COS vs Zara trousers</li>
+        </ul>
+        <h4>Search result tabs</h4>
+        <pre><code>Top | Items | Rankings | Brands | Creators | Alternatives | Sales | Resale</code></pre>
+      </div>
+
+      <h3>6.3 Compare Tab</h3>
+      <div class="card">
+        <p><strong>Purpose:</strong> Help users make purchase decisions by comparing products side by side.</p>
+        <h4>Compare tab sections</h4>
+        <ul>
+          <li><strong>Active Compare Tray:</strong> items currently selected for comparison.</li>
+          <li><strong>Saved Comparisons:</strong> user’s saved comparison groups.</li>
+          <li><strong>Popular Comparisons:</strong> community comparisons such as “Samba vs Gazelle” or “COS vs Uniqlo trousers.”</li>
+          <li><strong>Ask Friends:</strong> share comparison with chat or story poll.</li>
+        </ul>
+      </div>
+
+      <h3>6.4 Rank Tab</h3>
+      <div class="card">
+        <p><strong>Purpose:</strong> Show what is changing in fashion taste.</p>
+        <h4>Rank feed examples</h4>
+        <ul>
+          <li>“Maya moved the Coach Brooklyn Bag from #5 to #2 in Everyday Bags.”</li>
+          <li>“COS relaxed trousers entered the top 10 for Work Pants.”</li>
+          <li>“37 people with your style saved this Uniqlo jacket today.”</li>
+          <li>“Aritzia coat dropped in ranking after fit complaints.”</li>
+          <li>“This alternative to The Row Margaux moved to #1 under $300.”</li>
+        </ul>
+      </div>
+
+      <h3>6.5 Item Detail Page</h3>
+      <div class="card">
+        <p><strong>Purpose:</strong> Give all information needed to decide whether to save, compare, rank, or buy an item.</p>
+        <h4>Item detail layout</h4>
+        <pre><code>[Image carousel]
+Brand + Item Name
+Price range · Availability · Retailers
+Tags: minimal, relaxed fit, under $100, office, fall
+
+Primary actions:
+[Save] [Compare] [Rank] [Shop]
+
+Decision sections:
+- Why people rank it highly
+- Fit notes
+- Material and quality notes
+- Price history / sale status
+- Available retailers
+- Similar alternatives
+- Ranking appearances
+- Creator posts
+- Comments / Q&A</code></pre>
+      </div>
+
+      <h3>6.6 Profile</h3>
+      <div class="card">
+        <p><strong>Purpose:</strong> Make the user’s style identity visible through rankings, wishlist, saves, and posts.</p>
+        <h4>Profile tabs</h4>
+        <pre><code>Posts | Rankings | Wishlist | Comparisons | Saved</code></pre>
+        <h4>Profile modules</h4>
+        <ul>
+          <li>Style tags</li>
+          <li>Favorite brands</li>
+          <li>Budget range</li>
+          <li>Top ranked lists</li>
+          <li>Wishlist previews</li>
+          <li>Recently compared items</li>
+          <li>Public/private controls</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="comparison">
+      <h2>7. Side-by-Side Compare System</h2>
+      <div class="card">
+        <h3>Why compare is core</h3>
+        <p>Fashion purchase decisions are often comparative. Users do not only ask “is this good?” They ask “is this better than that?” Zoe should make comparison effortless.</p>
+      </div>
+
+      <h3>Compare flow</h3>
+      <pre><code>1. User taps Compare on any item card.
+2. Item enters floating Compare Tray.
+3. User adds 2-4 items.
+4. User opens Compare page.
+5. Zoe shows normalized side-by-side fields.
+6. User can save comparison, ask friends, rank winner, or buy.</code></pre>
+
+      <h3>Comparison fields</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Price</td><td>Basic purchase decision.</td></tr>
+          <tr><td>Brand</td><td>Identity, trust, and quality signal.</td></tr>
+          <tr><td>Retailers</td><td>Where it can be bought.</td></tr>
+          <tr><td>Availability</td><td>Size/color in stock.</td></tr>
+          <tr><td>Material</td><td>Quality and comfort signal.</td></tr>
+          <tr><td>Fit</td><td>True to size, oversized, slim, cropped, wide, petite-friendly, tall-friendly.</td></tr>
+          <tr><td>Ranking score</td><td>Social proof from Zoe users.</td></tr>
+          <tr><td>Saves</td><td>Popularity signal.</td></tr>
+          <tr><td>Creator mentions</td><td>Taste authority signal.</td></tr>
+          <tr><td>Alternatives</td><td>Cheaper or better options.</td></tr>
+          <tr><td>Resale signal</td><td>Optional later: value retention, price movement.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Compare page wireframe</h3>
+      <pre><code>Compare
+------------------------------------------------
+        Item A          Item B          Item C
+Image   [photo]         [photo]         [photo]
+Price   $89             $128            $248
+Brand   Uniqlo          COS             Aritzia
+Fit     Relaxed         Wide            Tailored
+Rank    #1 Basics       #3 Work Pants   #8 Trousers
+Saves   12.8k           8.1k            5.7k
+Material Cotton blend   Wool blend      Polyester blend
+Stock   M/L in stock    S/M in stock    Low stock
+Actions [Save] [Rank]   [Save] [Rank]   [Save] [Rank]
+------------------------------------------------
+[Ask Friends] [Save Comparison] [Show Alternatives]</code></pre>
+    </section>
+
+    <section id="ranking">
+      <h2>8. Ranking System</h2>
+      <div class="card">
+        <h3>Ranking is the moat</h3>
+        <p>The catalog makes Zoe useful. Ranking makes Zoe different. Every product should become part of a living taste graph.</p>
+      </div>
+
+      <h3>Ranking types</h3>
+      <div class="grid">
+        <div class="soft-card">
+          <h4>Personal rankings</h4>
+          <p>My best basics, my bag wishlist, shoes I actually wear, items I regret buying.</p>
+        </div>
+        <div class="soft-card">
+          <h4>Community rankings</h4>
+          <p>Best Uniqlo pieces, best work totes, best fall jackets, best sneakers under $150.</p>
+        </div>
+        <div class="soft-card">
+          <h4>Creator rankings</h4>
+          <p>Public ranked lists from style creators, campus tastemakers, menswear curators, and resale experts.</p>
+        </div>
+        <div class="soft-card">
+          <h4>Alternative rankings</h4>
+          <p>Best alternatives to specific designer items or viral fashion pieces.</p>
+        </div>
+      </div>
+
+      <h3>Add-to-ranking flow</h3>
+      <pre><code>Tap Rank
+  → Choose list or create new list
+  → Place item manually or compare against existing entries
+  → Add short note: “best fit for the price”
+  → Choose visibility: public / followers / private
+  → Publish ranking update or save silently</code></pre>
+
+      <h3>Ranking signals</h3>
+      <ul>
+        <li>Number of times ranked</li>
+        <li>Average rank position</li>
+        <li>Rank movement over time</li>
+        <li>Saves and wishlist adds</li>
+        <li>Creator authority weight</li>
+        <li>User similarity weight</li>
+        <li>Recency of rankings</li>
+        <li>Fit/quality complaints or praise</li>
+      </ul>
+    </section>
+
+    <section id="addictive">
+      <h2>9. Retention and Addictive Browse Loops</h2>
+      <div class="card">
+        <h3>Goal</h3>
+        <p>When users see the app on their phone, they should want to open it because Zoe always has something new, useful, and personally relevant.</p>
+      </div>
+
+      <h3>Core triggers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Trigger</th>
+            <th>User feeling</th>
+            <th>Product surface</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New drops</td>
+            <td>“What is new today?”</td>
+            <td>Home, Brand pages, Notifications</td>
+          </tr>
+          <tr>
+            <td>Restocks</td>
+            <td>“Did my size come back?”</td>
+            <td>Wishlist, Alerts</td>
+          </tr>
+          <tr>
+            <td>Ranking movement</td>
+            <td>“What is everyone suddenly loving?”</td>
+            <td>Rank tab</td>
+          </tr>
+          <tr>
+            <td>Comparison decisions</td>
+            <td>“Which one should I buy?”</td>
+            <td>Compare tab</td>
+          </tr>
+          <tr>
+            <td>Creator updates</td>
+            <td>“What did this stylish person add?”</td>
+            <td>Feed, Profile, Rank tab</td>
+          </tr>
+          <tr>
+            <td>Alternatives</td>
+            <td>“Can I get this look for less?”</td>
+            <td>Search, Item detail</td>
+          </tr>
+          <tr>
+            <td>Social validation</td>
+            <td>“Do people like me think this is worth it?”</td>
+            <td>Item detail, Comments, Chat</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Daily habit design</h3>
+      <div class="grid">
+        <div class="soft-card">
+          <h4>Morning</h4>
+          <p>New drops, restocks, “today’s top finds,” and quick browse cards.</p>
+        </div>
+        <div class="soft-card">
+          <h4>Afternoon</h4>
+          <p>Creator lists, sale finds, outfit inspiration, and ranking movement.</p>
+        </div>
+        <div class="soft-card">
+          <h4>Evening</h4>
+          <p>Comparison decisions, saved wishlist review, “ask friends,” and outfit planning.</p>
+        </div>
+      </div>
+
+      <h3>Notifications that should exist</h3>
+      <ul>
+        <li>“A saved item restocked in your size.”</li>
+        <li>“A piece you compared dropped in price.”</li>
+        <li>“A creator you follow ranked 8 new Uniqlo pieces.”</li>
+        <li>“This bag moved to #1 in everyday bags.”</li>
+        <li>“People with your style are saving this jacket.”</li>
+        <li>“Your friend sent you a comparison.”</li>
+      </ul>
+    </section>
+
+    <section id="ui">
+      <h2>10. Minimal UI Rules</h2>
+      <div class="card">
+        <h3>Design principle</h3>
+        <p>The UI must be simple, clean, and addictive. It should feel like a tasteful social app, not a database, marketplace, or spreadsheet.</p>
+      </div>
+
+      <h3>Non-negotiable UI rules</h3>
+      <ol>
+        <li><strong>One primary action per surface.</strong> Do not overwhelm users with too many buttons.</li>
+        <li><strong>Every product card has three tiny actions only:</strong> Save, Compare, Rank.</li>
+        <li><strong>Do not show too many technical fields on cards.</strong> Put detailed data inside item detail or compare page.</li>
+        <li><strong>Use large images and clean typography.</strong> Fashion is visual.</li>
+        <li><strong>Use warm neutral backgrounds.</strong> Avoid harsh shopping-app white and loud sale colors.</li>
+        <li><strong>Rank movement should be elegant.</strong> Use small arrows, numbers, and subtle color.</li>
+        <li><strong>Comparison should be visually clear.</strong> Side-by-side columns, no clutter.</li>
+        <li><strong>Search should be extremely prominent.</strong> Users need to find anything fast.</li>
+      </ol>
+
+      <h3>Product card minimal anatomy</h3>
+      <pre><code>[Product image]
+Brand · Product name
+$price · key tag
+Ranked #x in category
+[Save] [Compare] [Rank]</code></pre>
+
+      <h3>Feed card minimal anatomy</h3>
+      <pre><code>[Creator / brand / system label]
+[Visual]
+Headline
+One-line why it matters
+[Open] [Save] [Compare]</code></pre>
+    </section>
+
+    <section id="data-model">
+      <h2>11. Data Model</h2>
+      <div class="card">
+        <h3>Core entities</h3>
+        <p>The coding agent should treat these as baseline database tables or collections.</p>
+      </div>
+
+      <h3>Canonical Product</h3>
+      <pre><code>{
+  "id": "product_123",
+  "canonical_name": "Wide-Leg Pleated Pants",
+  "brand_id": "brand_uniqlo",
+  "category": "pants",
+  "subcategory": "wide_leg_pants",
+  "gender_presentation": ["women", "unisex"],
+  "price_min": 49.90,
+  "price_max": 59.90,
+  "currency": "USD",
+  "description": "Relaxed wide-leg pants with pleated front.",
+  "materials": ["cotton", "polyester"],
+  "colors": ["black", "cream", "gray"],
+  "sizes": ["XS", "S", "M", "L", "XL"],
+  "image_urls": [],
+  "tags": ["minimal", "office", "wide leg", "affordable"],
+  "source_confidence": 0.94,
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
+}</code></pre>
+
+      <h3>Retailer Offer</h3>
+      <pre><code>{
+  "id": "offer_456",
+  "product_id": "product_123",
+  "retailer_id": "retailer_uniqlo_us",
+  "source_id": "source_uniqlo_api",
+  "external_product_id": "abc123",
+  "product_url": "https://...",
+  "affiliate_url": "https://...",
+  "current_price": 49.90,
+  "original_price": 59.90,
+  "currency": "USD",
+  "available_sizes": ["S", "M", "L"],
+  "available_colors": ["black", "gray"],
+  "availability_status": "in_stock",
+  "last_checked_at": "timestamp"
+}</code></pre>
+
+      <h3>Ranking List</h3>
+      <pre><code>{
+  "id": "list_789",
+  "owner_user_id": "user_123",
+  "title": "Best Fall Jackets Under $200",
+  "category": "outerwear",
+  "visibility": "public",
+  "description": "Jackets I would actually buy this season.",
+  "entries": [
+    { "product_id": "product_a", "rank": 1, "note": "Best value." },
+    { "product_id": "product_b", "rank": 2, "note": "Better design, higher price." }
+  ],
+  "save_count": 248,
+  "updated_at": "timestamp"
+}</code></pre>
+
+      <h3>Compare Group</h3>
+      <pre><code>{
+  "id": "compare_001",
+  "user_id": "user_123",
+  "title": "Black loafers comparison",
+  "product_ids": ["product_1", "product_2", "product_3"],
+  "status": "active",
+  "shared_with": [],
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
+}</code></pre>
+
+      <h3>User Taste Profile</h3>
+      <pre><code>{
+  "user_id": "user_123",
+  "style_tags": ["minimal", "quiet luxury", "streetwear"],
+  "favorite_brands": ["uniqlo", "cos", "coach"],
+  "budget_min": 30,
+  "budget_max": 300,
+  "preferred_categories": ["bags", "pants", "jackets", "shoes"],
+  "size_preferences": {
+    "tops": "M",
+    "bottoms": "30",
+    "shoes_us": "9"
+  },
+  "fit_preferences": ["relaxed", "wide", "cropped"],
+  "privacy": "private_by_default"
+}</code></pre>
+    </section>
+
+    <section id="apis">
+      <h2>12. API + Ingestion Requirements</h2>
+      <div class="card">
+        <h3>Primary requirement</h3>
+        <p>The app should be designed to ingest product data from many brands, retailers, and servers through adapters. The front end should never care where the product came from. It should only consume the normalized Zoe catalog API.</p>
+      </div>
+
+      <h3>Adapter interface</h3>
+      <pre><code>interface ProductSourceAdapter {
+  sourceName: string;
+  fetchProducts(cursor?: string): Promise&lt;RawProductBatch&gt;;
+  fetchProductById(externalId: string): Promise&lt;RawProduct&gt;;
+  normalize(rawProduct: RawProduct): CanonicalProductDraft;
+  fetchAvailability?(externalId: string): Promise&lt;AvailabilitySnapshot&gt;;
+  fetchPrice?(externalId: string): Promise&lt;PriceSnapshot&gt;;
+}</code></pre>
+
+      <h3>Catalog API endpoints</h3>
+      <pre><code>GET    /api/products
+GET    /api/products/:id
+GET    /api/products/:id/offers
+GET    /api/products/:id/alternatives
+GET    /api/products/:id/rankings
+GET    /api/search?q=&category=&brand=&price_min=&price_max=
+POST   /api/compare-groups
+GET    /api/compare-groups/:id
+POST   /api/rankings
+PATCH  /api/rankings/:id
+POST   /api/wishlist
+GET    /api/feed
+GET    /api/rank-updates
+GET    /api/brands/:id
+GET    /api/brands/:id/drops</code></pre>
+
+      <h3>Ingestion fields to normalize</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Required?</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Product name</td><td>Yes</td><td>Clean and canonicalized.</td></tr>
+          <tr><td>Brand</td><td>Yes</td><td>Must map to brand table.</td></tr>
+          <tr><td>Category</td><td>Yes</td><td>Normalize into Zoe taxonomy.</td></tr>
+          <tr><td>Images</td><td>Yes</td><td>Need high-quality thumbnails.</td></tr>
+          <tr><td>Price</td><td>Yes</td><td>Store current and original if available.</td></tr>
+          <tr><td>Product URL</td><td>Yes</td><td>External purchase link.</td></tr>
+          <tr><td>Sizes</td><td>Preferred</td><td>Needed for personalized restock alerts.</td></tr>
+          <tr><td>Colors</td><td>Preferred</td><td>Needed for variants.</td></tr>
+          <tr><td>Materials</td><td>Preferred</td><td>Needed for comparison.</td></tr>
+          <tr><td>Availability</td><td>Preferred</td><td>Needed for restock trigger.</td></tr>
+          <tr><td>SKU / external ID</td><td>Preferred</td><td>Needed for deduplication.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Deduplication strategy</h3>
+      <ul>
+        <li>Exact match by brand + SKU if available.</li>
+        <li>Fuzzy match by brand + cleaned product name + color + image similarity.</li>
+        <li>Variant matching for color and size.</li>
+        <li>Manual admin override for important products.</li>
+      </ul>
+    </section>
+
+    <section id="mvp">
+      <h2>13. MVP Scope</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>MVP must-have</h3>
+          <ol>
+            <li>Auth and onboarding</li>
+            <li>Style, brand, budget, and size preferences</li>
+            <li>Unified product catalog</li>
+            <li>Product search</li>
+            <li>Home feed</li>
+            <li>Item detail page</li>
+            <li>Save / wishlist</li>
+            <li>Compare tray and compare page</li>
+            <li>Personal ranked lists</li>
+            <li>Rank updates feed</li>
+            <li>Creator/user profiles</li>
+            <li>Basic brand pages</li>
+            <li>Basic notifications</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>MVP can fake or seed</h3>
+          <ol>
+            <li>Start with 10-30 brands manually seeded if live APIs are not ready.</li>
+            <li>Use static product JSON to build frontend first.</li>
+            <li>Use mock ranking scores until enough users rank items.</li>
+            <li>Use editorial “best alternatives” lists before algorithmic matching.</li>
+            <li>Use simple keyword search before vector search.</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3>Recommended MVP brand/category focus</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Why start here</th>
+            <th>Example brands</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Basics</td><td>High utility, broad audience, easy comparison.</td><td>Uniqlo, COS, Zara, Aritzia, Abercrombie</td></tr>
+          <tr><td>Bags</td><td>High visual value, strong purchase decision, resale potential.</td><td>Coach, Longchamp, Madewell, Polène, Quince</td></tr>
+          <tr><td>Shoes</td><td>Frequent comparisons and high interest.</td><td>Adidas, New Balance, Nike, Dr. Martens, Steve Madden</td></tr>
+          <tr><td>Outerwear</td><td>Seasonal trigger, higher price, easy ranking.</td><td>Uniqlo, COS, Zara, Arc’teryx, The North Face</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Phase plan</h3>
+      <ol>
+        <li><strong>Phase 1:</strong> Build frontend with seeded catalog JSON, Home, Search, Item Detail, Save, Compare, Ranking.</li>
+        <li><strong>Phase 2:</strong> Add backend catalog service and source adapter pattern.</li>
+        <li><strong>Phase 3:</strong> Add live brand/retailer/affiliate feeds and scheduled ingestion.</li>
+        <li><strong>Phase 4:</strong> Add personalized feed, ranking updates, restock/price alerts.</li>
+        <li><strong>Phase 5:</strong> Add creator monetization, affiliate links, and brand campaign tools.</li>
+      </ol>
+    </section>
+
+    <section id="agent">
+      <h2>14. Coding Agent Instructions</h2>
+      <div class="card">
+        <h3>Build goal</h3>
+        <p>Create a mobile-first app prototype for Zoe Fashion that demonstrates unified product browsing, side-by-side comparison, ranking, wishlist, and a minimal addictive feed.</p>
+      </div>
+
+      <h3>Frontend implementation guidance</h3>
+      <ul>
+        <li>Use a mobile-first layout with a fixed bottom tab bar: Home, Search, Compare, Rank, Profile.</li>
+        <li>Keep UI minimal. Large product images, short text, soft neutral colors.</li>
+        <li>Every product card should expose Save, Compare, and Rank.</li>
+        <li>Use mock data first if real APIs are not available.</li>
+        <li>Implement a Compare Tray that persists selected items across screens.</li>
+        <li>Implement an Item Detail page with offers, alternatives, rankings, fit notes, and comparison actions.</li>
+        <li>Implement ranking lists and rank movement events.</li>
+      </ul>
+
+      <h3>Backend implementation guidance</h3>
+      <ul>
+        <li>Create a normalized product catalog API.</li>
+        <li>Create source adapters for brand or retailer feeds.</li>
+        <li>Store raw source responses separately from normalized products.</li>
+        <li>Implement deduplication by SKU first, fuzzy matching second.</li>
+        <li>Implement search over product name, brand, category, tags, and ranking lists.</li>
+        <li>Implement wishlist and compare groups as user-owned entities.</li>
+        <li>Implement ranking events for Rank tab feed.</li>
+      </ul>
+
+      <h3>Mock data seed structure</h3>
+      <pre><code>/data
+  brands.json
+  products.json
+  offers.json
+  users.json
+  rankings.json
+  ranking_updates.json
+  compare_groups.json
+  wishlist.json</code></pre>
+
+      <h3>Acceptance criteria</h3>
+      <ol>
+        <li>User can browse a clean Home feed of fashion items and ranking cards.</li>
+        <li>User can search products by brand, category, and style tag.</li>
+        <li>User can open an item detail page.</li>
+        <li>User can save an item to wishlist.</li>
+        <li>User can add 2-4 items to Compare and see them side by side.</li>
+        <li>User can rank an item into a personal list.</li>
+        <li>User can view Rank Updates showing movement in rankings.</li>
+        <li>UI remains minimal and phone-friendly.</li>
+        <li>Catalog is source-agnostic and ready for API/brand feed ingestion.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Final Product Definition</h2>
+      <div class="card">
+        <p><strong>Zoe Fashion is the phone app people open when they want to browse fashion, compare options, and decide what is worth buying. It brings products from many brands into one minimal feed, adds side-by-side comparison, and turns fashion taste into ranked social proof.</strong></p>
+        <p>The app should feel effortless: open, browse, save, compare, rank, and decide.</p>
+      </div>
+    </section>
+
+    <p class="footer-note">Zoe Fashion App Spec — updated for unified catalog ingestion, comparison-first purchase decisions, addictive fashion browsing, and minimal mobile UI.</p>
+  </main>
+</body>
+</html>

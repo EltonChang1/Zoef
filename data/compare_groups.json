@@ -1,0 +1,9 @@
+[
+  {
+    "id": "compare_001",
+    "user_id": "user_001",
+    "title": "Daily Sneaker Decision",
+    "product_ids": ["product_shoe_001", "product_pants_001"],
+    "status": "active"
+  }
+]
