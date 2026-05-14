@@ -5,12 +5,16 @@ Use this file together with:
 - `PRD.md` (product requirements and scope source of truth)
 
 ## 1) What to design
-Design a **mobile-first social fashion app UI** for Zoe Fashion with five main tabs:
+Design a **mobile-first social fashion app UI** for Zoe Fashion with four main tabs:
 1. Home
 2. Search
-3. Compare
-4. Rank
-5. Profile
+3. Rank
+4. Profile
+
+Comparison should be a contextual in-app function (not a primary tab), surfaced from:
+- product card quick actions
+- item detail primary actions
+- a persistent compare tray module
 
 The product should feel like:
 - modern, minimal, premium
@@ -72,7 +76,7 @@ Include:
 - filter row (category, brand, price)
 - visual result cards + empty state
 
-### C) Compare
+### C) Comparison Workspace (Contextual)
 Include:
 - active compare tray state (2-4 items)
 - side-by-side comparison table/card layout
@@ -112,7 +116,7 @@ Please generate:
 1. Mobile UI kit (colors, text styles, spacing, component patterns)
 2. High-fidelity screens for all required views
 3. Interactive prototype flow:
-   - Home -> Item Detail -> Compare
+   - Home -> Item Detail -> Compare Workspace
    - Search -> Item Detail
    - Rank -> Ranking list
    - Profile -> Wishlist/Comparisons
@@ -127,7 +131,7 @@ Please generate:
 Design should map cleanly to:
 - `index.html` app shell structure
 - `styles.css` token style direction
-- `src/app.js` five-tab navigation model
+- `src/app.js` four-tab primary navigation + contextual compare flow
 - `PRD.md` acceptance criteria and MVP scope
 
 Avoid requiring:
@@ -136,4 +140,4 @@ Avoid requiring:
 - marketplace cart systems in MVP
 
 ## 8) Prompt block for Stitch (copy/paste)
-Design a mobile-first app called Zoe Fashion. It is a minimal social fashion discovery and purchase-decision app with five tabs: Home, Search, Compare, Rank, Profile. The visual style is warm neutral, premium, and clean. Build high-fidelity screens for Home feed, Search results, Compare side-by-side screen, Rank updates/list screen, Profile screen, and Item Detail screen. Every product card includes Save, Compare, Rank actions. Compare is a core feature and must be prominent and frictionless. Use large visuals, restrained typography, subtle borders, and rounded cards. Include a bottom tab bar and sticky top search patterns. Create a reusable component system and interactive prototype for the main flows.
+Design a mobile-first app called Zoe Fashion. It is a minimal social fashion discovery and purchase-decision app with four primary tabs: Home, Search, Rank, Profile. Comparison is a core in-app function (not a primary tab) and should be accessed from Save/Compare/Rank product actions, item detail, and a persistent compare tray that opens a side-by-side comparison workspace. The visual style is warm neutral, premium, and clean. Build high-fidelity screens for Home feed, Search results, Compare side-by-side workspace, Rank updates/list screen, Profile screen, and Item Detail screen. Every product card includes Save, Compare, Rank actions. Use large visuals, restrained typography, subtle borders, and rounded cards. Include a bottom tab bar and sticky top search patterns. Create a reusable component system and interactive prototype for the main flows.

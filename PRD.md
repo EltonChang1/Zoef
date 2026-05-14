@@ -50,16 +50,21 @@ Users currently bounce across many brand and retailer sites, then rely on memory
 2. Visual-first cards with minimal text noise.
 3. One clear primary action per surface.
 4. Product-card quick actions always include: Save, Compare, Rank.
-5. Search and Compare are always one tap away.
+5. Search is always one tap away, and Compare is always one action away from product cards/detail.
 6. Ranking changes are legible and subtle, not noisy.
 
 ## 7) Information Architecture
 Bottom tab navigation:
 1. Home
 2. Search
-3. Compare
-4. Rank
-5. Profile
+3. Rank
+4. Profile
+
+Comparison entry points (contextual function, not a main tab):
+- Product card quick action: Compare
+- Item detail primary action: Compare
+- Persistent compare tray module visible across primary tabs
+- Comparison workspace opened from compare tray
 
 ## 8) Functional Requirements
 
@@ -104,7 +109,7 @@ Bottom tab navigation:
 - Save compare groups and reopen them.
 
 **Acceptance Criteria:**
-- Compare tray persists across tabs during session.
+- Compare tray persists across primary tabs during session.
 - Side-by-side table renders all selected items.
 - User can save a comparison group.
 
@@ -137,7 +142,7 @@ Bottom tab navigation:
 **Acceptance Criteria:**
 - User can execute all primary actions from detail.
 - Offer links and pricing load for each product.
-- Comparison action routes to compare flow with item preselected.
+- Comparison action routes to the comparison workspace with item preselected.
 
 ### 8.6 Profile
 **Purpose:** user taste identity and saved intent.
@@ -146,7 +151,7 @@ Bottom tab navigation:
 - Posts (optional stub in MVP)
 - Rankings
 - Wishlist
-- Comparisons
+- Comparisons (saved groups)
 - Saved
 - Style tags, favorite brands, budget and privacy settings
 
@@ -204,7 +209,8 @@ Every source integration must normalize to the same canonical product model. Fro
 ## 11) MVP Scope and Phase Plan
 
 ### Phase 1 - Frontend Prototype with Seed Data
-- Build Home, Search, Compare, Rank, Profile tabs
+- Build Home, Search, Rank, Profile primary tabs
+- Build compare tray + comparison workspace flow
 - Build item detail and compare tray
 - Use static JSON seed files
 
@@ -257,13 +263,14 @@ Every source integration must normalize to the same canonical product model. Fro
   - `data/compare_groups.json`
   - `data/wishlist.json`
 - [ ] Define canonical data types/interfaces.
-- [ ] Scaffold mobile navigation with five tabs.
+- [ ] Scaffold mobile navigation with four primary tabs.
+- [ ] Add contextual comparison flow (product action -> tray -> workspace).
 - [ ] Wire mock API/provider layer.
 
 ### Feature Sprint Order
 1. Home + product cards + detail page
 2. Save/Wishlist
-3. Compare tray + compare page
+3. Compare tray + comparison workspace
 4. Rank flows + rank updates feed
 5. Search/Explore tabs and filters
 6. Profile and preference editing

@@ -13,6 +13,7 @@ import {
 const USER_ID = "user_001";
 const state = {
   activeTab: "home",
+  previousPrimaryTab: "home",
   searchText: "",
   compareTray: []
 };
@@ -29,8 +30,12 @@ function currency(amount) {
 
 function setActiveTab(tab) {
   state.activeTab = tab;
+  if (tab !== "compare") {
+    state.previousPrimaryTab = tab;
+  }
+  const navTab = state.activeTab === "compare" ? state.previousPrimaryTab : state.activeTab;
   tabButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.tab === tab);
+    button.classList.toggle("is-active", button.dataset.tab === navTab);
   });
   render();
 }
@@ -38,11 +43,7 @@ function setActiveTab(tab) {
 async function addToCompare(productId) {
   state.compareTray = Array.from(new Set([...state.compareTray, productId])).slice(0, 4);
   await upsertCompareGroup(USER_ID, state.compareTray);
-  if (state.activeTab !== "compare") {
-    setActiveTab("compare");
-  } else {
-    render();
-  }
+  render();
 }
 
 function productCard(product, brandName) {
@@ -65,6 +66,28 @@ function productCard(product, brandName) {
   `;
 }
 
+function renderCompareTray() {
+  if (!state.compareTray.length) {
+    return "";
+  }
+
+  return `
+    <section class="card compare-tray">
+      <div class="compare-tray-header">
+        <h2>Compare Tray (${state.compareTray.length}/4)</h2>
+        <div class="actions">
+          <button data-action="compare-review" class="primary">Review Comparison</button>
+          <button data-action="compare-clear">Clear</button>
+        </div>
+      </div>
+      <p class="muted">Compare is a contextual function: add items from any product card, then review side by side when you are ready.</p>
+      <div class="pill-list">
+        ${state.compareTray.map((id) => `<button data-action="compare-remove" data-product-id="${id}" class="pill-button">${id}</button>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 async function renderHome() {
   const feed = await getFeed();
   const brandById = new Map(boot.brands.map((brand) => [brand.id, brand.name]));
@@ -76,6 +99,7 @@ async function renderHome() {
     .join("");
 
   view.innerHTML = `
+    ${renderCompareTray()}
     <section class="card">
       <h2>For You</h2>
       <p class="muted">Seeded ranked products from the unified catalog.</p>
@@ -107,6 +131,7 @@ async function renderSearch() {
     .join("");
 
   view.innerHTML = `
+    ${renderCompareTray()}
     <section class="card">
       <h2>Search Results</h2>
       <p class="muted">Top matches for "${text}"</p>
@@ -122,8 +147,9 @@ async function renderCompare() {
   if (!validProducts.length) {
     view.innerHTML = `
       <section class="card">
-        <h2>Compare</h2>
+        <h2>Comparison Workspace</h2>
         <p class="muted">Add 2-4 items from Home or Search to compare side by side.</p>
+        <button data-action="compare-back">Back to ${state.previousPrimaryTab}</button>
       </section>
     `;
     return;
@@ -147,8 +173,11 @@ async function renderCompare() {
 
   view.innerHTML = `
     <section class="card">
-      <h2>Active Compare Tray</h2>
+      <h2>Comparison Workspace</h2>
       <p class="muted">Comparing ${validProducts.length} item(s). Limit is 4.</p>
+      <div class="actions">
+        <button data-action="compare-back">Back to ${state.previousPrimaryTab}</button>
+      </div>
     </section>
     <section class="card">
       <table class="compare-table">
@@ -172,6 +201,7 @@ async function renderRank() {
   const updates = boot.rankingUpdates.map((update) => `<li>${update.message}</li>`).join("");
 
   view.innerHTML = `
+    ${renderCompareTray()}
     <section class="card">
       <h2>${list.title}</h2>
       <ul>${items}</ul>
@@ -189,6 +219,7 @@ async function renderProfile() {
   const wishlistProducts = boot.products.filter((product) => wishlistIds.includes(product.id));
 
   view.innerHTML = `
+    ${renderCompareTray()}
     <section class="card">
       <h2>@${user.username}</h2>
       <p class="muted">Style: ${user.style_tags.join(" · ")}</p>
@@ -260,6 +291,34 @@ view.addEventListener("click", async (event) => {
     return;
   }
 
+  if (action === "compare-review") {
+    setActiveTab("compare");
+    return;
+  }
+
+  if (action === "compare-back") {
+    setActiveTab(state.previousPrimaryTab || "home");
+    return;
+  }
+
+  if (action === "compare-clear") {
+    state.compareTray = [];
+    await upsertCompareGroup(USER_ID, state.compareTray);
+    if (state.activeTab === "compare") {
+      setActiveTab(state.previousPrimaryTab || "home");
+    } else {
+      render();
+    }
+    return;
+  }
+
+  if (action === "compare-remove") {
+    state.compareTray = state.compareTray.filter((id) => id !== productId);
+    await upsertCompareGroup(USER_ID, state.compareTray);
+    render();
+    return;
+  }
+
   if (action === "rank") {
     await addRankingEntry("list_001", productId, "Added from quick rank action");
     boot.rankings = await getBootstrapData().then((payload) => payload.rankings);
@@ -271,9 +330,8 @@ view.addEventListener("click", async (event) => {
 
 async function init() {
   boot = await getBootstrapData();
-  const defaultCompareIds = boot.products.slice(0, 2).map((product) => product.id);
-  state.compareTray = defaultCompareIds;
-  await upsertCompareGroup(USER_ID, defaultCompareIds);
+  state.compareTray = [];
+  await upsertCompareGroup(USER_ID, state.compareTray);
 
   await render();
 

@@ -9,7 +9,7 @@ This repository is currently scaffolded as a lightweight static web prototype us
 ## Structure
 - `index.html` - app shell entrypoint
 - `styles.css` - mobile-first styling
-- `src/app.js` - tab navigation shell + view rendering
+- `src/app.js` - primary tab shell + contextual comparison workflow rendering
 - `src/mockApi.js` - source-agnostic mock API/provider layer
 - `src/types.js` - canonical type/interface typedefs
 - `data/*.json` - seed data files from the PRD Sprint 0 checklist
@@ -26,5 +26,6 @@ Examples:
 ## Implemented Sprint 0 checklist
 - Seed data directory and required files
 - Canonical data interface definitions
-- Five-tab mobile navigation shell
+- Four-tab mobile navigation shell (Home, Search, Rank, Profile)
+- Compare as an in-app function (tray + comparison workspace)
 - Mock API/provider layer mapped to PRD API intent

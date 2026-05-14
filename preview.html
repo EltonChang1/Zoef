@@ -353,7 +353,7 @@
       left: 0;
       right: 0;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       background: rgba(255,255,255,0.96);
       border-top: 1px solid var(--border);
       padding: 9px 6px 12px;
@@ -396,28 +396,28 @@
 <body>
   <main class="page">
     <header>
-      <div class="eyebrow">Mobile Product + Engineering Build Spec</div>
+      <div class="eyebrow">Product Story + Experience Vision</div>
       <h1>Zoe Fashion</h1>
       <p class="lead">A minimal, addictive phone app that pulls clothing, shoes, bags, accessories, and fashion drops from many brand and retailer sources into one unified place, then lets users browse, compare side by side, rank, save, and decide what is actually worth buying.</p>
       <div class="tagline">Find what is actually worth wearing.</div>
-      <p><strong>Execution note:</strong> Use <code>PRD.md</code> as the implementation source of truth and use this file as the visual/product intent reference.</p>
+      <p><strong>Story note:</strong> Use <code>PRD.md</code> for implementation details, and use this page for product voice, experience direction, and interaction intent.</p>
     </header>
 
     <nav class="toc" aria-label="Table of contents">
       <a href="#north-star">1. North Star</a>
       <a href="#positioning">2. Positioning</a>
       <a href="#catalog">3. Unified Catalog</a>
-      <a href="#architecture">4. Technical Architecture</a>
+      <a href="#architecture">4. Behind-the-Scenes Flow</a>
       <a href="#navigation">5. Navigation</a>
-      <a href="#screens">6. Screen Specs</a>
-      <a href="#comparison">7. Compare System</a>
-      <a href="#ranking">8. Ranking System</a>
+      <a href="#screens">6. Key In-App Moments</a>
+      <a href="#comparison">7. Compare Workflow</a>
+      <a href="#ranking">8. Taste Graph</a>
       <a href="#addictive">9. Retention Loops</a>
-      <a href="#ui">10. Minimal UI Rules</a>
-      <a href="#data-model">11. Data Model</a>
-      <a href="#apis">12. API + Ingestion</a>
-      <a href="#mvp">13. MVP Scope</a>
-      <a href="#agent">14. Coding Agent Instructions</a>
+      <a href="#ui">10. Design Personality</a>
+      <a href="#data-model">11. Signals Behind the Scenes</a>
+      <a href="#apis">12. Fresh Catalog Engine</a>
+      <a href="#mvp">13. Launch Focus</a>
+      <a href="#agent">14. Build Narrative</a>
     </nav>
 
     <section id="north-star">
@@ -563,9 +563,10 @@
     </section>
 
     <section id="architecture">
-      <h2>4. Technical Architecture</h2>
+      <h2>4. Behind-the-Scenes Flow</h2>
       <div class="card">
-        <h3>High-level architecture</h3>
+        <h3>How the experience is powered</h3>
+        <p>To the user, Zoe feels simple and instant. Behind that simplicity is a system that keeps discovery fresh, comparisons useful, and ranking signals trustworthy.</p>
         <pre><code>Mobile App
   ├── Home Feed
   ├── Search / Explore
@@ -599,7 +600,7 @@ Data Stores
   └── Price / Availability History</code></pre>
       </div>
 
-      <h3>Catalog ingestion pipeline</h3>
+      <h3>How new fashion enters Zoe</h3>
       <pre><code>Source API / Feed / Partner Catalog
   → Source Adapter
   → Raw Product Staging
@@ -610,7 +611,7 @@ Data Stores
   → Recommendation Index
   → App Product Catalog</code></pre>
 
-      <h3>Important backend concepts</h3>
+      <h3>Core platform concepts</h3>
       <table>
         <thead>
           <tr>
@@ -657,19 +658,18 @@ Data Stores
     <section id="navigation">
       <h2>5. Mobile Navigation</h2>
       <div class="card">
-        <h3>Five-tab bottom navigation</h3>
-        <p>The app should be phone-first, simple, and thumb-friendly. Use five fixed tabs:</p>
+        <h3>Four-tab bottom navigation</h3>
+        <p>The app should be phone-first, simple, and thumb-friendly. Use four fixed tabs:</p>
         <ol>
           <li><strong>Home</strong> — personalized browse feed.</li>
           <li><strong>Search</strong> — search and explore all catalog items, brands, lists, and creators.</li>
-          <li><strong>Compare</strong> — side-by-side comparison tray and saved comparisons.</li>
           <li><strong>Rank</strong> — ranking updates from friends, creators, brands, and community lists.</li>
           <li><strong>Profile</strong> — user’s style identity, lists, wishlist, saves, and settings.</li>
         </ol>
       </div>
 
       <div class="note">
-        <strong>Change from original Zoe:</strong> This version should include a dedicated <strong>Compare</strong> tab because side-by-side item comparison is central to fashion purchase decisions. Rank Updates can still exist as the Rank tab.
+        <strong>Updated IA:</strong> Comparison is a contextual workflow inside the app (product action -> compare tray -> comparison workspace), not a primary tab.
       </div>
 
       <div class="phone-row">
@@ -687,7 +687,7 @@ Data Stores
               <div class="small-product"><div class="product-img"></div><div class="strong">Uniqlo jacket</div><div class="meta">#1 under $100</div></div>
               <div class="small-product"><div class="product-img"></div><div class="strong">COS trousers</div><div class="meta">Moved up 8 spots</div></div>
             </div>
-            <div class="bottom-nav"><div>Home</div><div>Search</div><div>Compare</div><div>Rank</div><div>Me</div></div>
+            <div class="bottom-nav"><div>Home</div><div>Search</div><div>Rank</div><div>Me</div></div>
           </div>
         </div>
         <div class="card">
@@ -698,14 +698,17 @@ Data Stores
             <li>Every product card should have three simple actions: <strong>Save</strong>, <strong>Compare</strong>, <strong>Rank</strong>.</li>
             <li>Creation lives in Profile, item pages, ranking pages, or contextual actions.</li>
             <li>Search must always be one tap away.</li>
-            <li>Compare must be one tap away because it is the main purchase-decision feature.</li>
+            <li>Compare must stay highly visible through product actions and a persistent compare tray.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section id="screens">
-      <h2>6. Screen-by-Screen Specs</h2>
+      <h2>6. Key In-App Moments</h2>
+      <div class="card">
+        <p>Each surface should feel editorial, fast, and confidence-building, helping users move from browsing to a clear decision without friction.</p>
+      </div>
 
       <h3>6.1 Home Feed</h3>
       <div class="card">
@@ -749,13 +752,13 @@ Data Stores
         <pre><code>Top | Items | Rankings | Brands | Creators | Alternatives | Sales | Resale</code></pre>
       </div>
 
-      <h3>6.3 Compare Tab</h3>
+      <h3>6.3 Compare Workflow (Contextual)</h3>
       <div class="card">
         <p><strong>Purpose:</strong> Help users make purchase decisions by comparing products side by side.</p>
-        <h4>Compare tab sections</h4>
+        <h4>Comparison workspace sections</h4>
         <ul>
           <li><strong>Active Compare Tray:</strong> items currently selected for comparison.</li>
-          <li><strong>Saved Comparisons:</strong> user’s saved comparison groups.</li>
+          <li><strong>Saved Comparisons:</strong> user’s saved comparison groups (accessible from Profile too).</li>
           <li><strong>Popular Comparisons:</strong> community comparisons such as “Samba vs Gazelle” or “COS vs Uniqlo trousers.”</li>
           <li><strong>Ask Friends:</strong> share comparison with chat or story poll.</li>
         </ul>
@@ -817,7 +820,7 @@ Decision sections:
     </section>
 
     <section id="comparison">
-      <h2>7. Side-by-Side Compare System</h2>
+      <h2>7. Side-by-Side Compare Workflow</h2>
       <div class="card">
         <h3>Why compare is core</h3>
         <p>Fashion purchase decisions are often comparative. Users do not only ask “is this good?” They ask “is this better than that?” Zoe should make comparison effortless.</p>
@@ -827,7 +830,7 @@ Decision sections:
       <pre><code>1. User taps Compare on any item card.
 2. Item enters floating Compare Tray.
 3. User adds 2-4 items.
-4. User opens Compare page.
+4. User opens Comparison Workspace from the tray.
 5. Zoe shows normalized side-by-side fields.
 6. User can save comparison, ask friends, rank winner, or buy.</code></pre>
 
@@ -854,7 +857,7 @@ Decision sections:
         </tbody>
       </table>
 
-      <h3>Compare page wireframe</h3>
+      <h3>Comparison workspace wireframe</h3>
       <pre><code>Compare
 ------------------------------------------------
         Item A          Item B          Item C
@@ -954,7 +957,7 @@ Actions [Save] [Rank]   [Save] [Rank]   [Save] [Rank]
           <tr>
             <td>Comparison decisions</td>
             <td>“Which one should I buy?”</td>
-            <td>Compare tab</td>
+            <td>Compare tray + Item detail action</td>
           </tr>
           <tr>
             <td>Creator updates</td>
@@ -1002,13 +1005,13 @@ Actions [Save] [Rank]   [Save] [Rank]   [Save] [Rank]
     </section>
 
     <section id="ui">
-      <h2>10. Minimal UI Rules</h2>
+      <h2>10. Design Personality</h2>
       <div class="card">
         <h3>Design principle</h3>
         <p>The UI must be simple, clean, and addictive. It should feel like a tasteful social app, not a database, marketplace, or spreadsheet.</p>
       </div>
 
-      <h3>Non-negotiable UI rules</h3>
+      <h3>Brand guardrails</h3>
       <ol>
         <li><strong>One primary action per surface.</strong> Do not overwhelm users with too many buttons.</li>
         <li><strong>Every product card has three tiny actions only:</strong> Save, Compare, Rank.</li>
@@ -1036,10 +1039,10 @@ One-line why it matters
     </section>
 
     <section id="data-model">
-      <h2>11. Data Model</h2>
+      <h2>11. Signals Behind the Scenes</h2>
       <div class="card">
         <h3>Core entities</h3>
-        <p>The coding agent should treat these as baseline database tables or collections.</p>
+        <p>These structures keep Zoe consistent across brands, retailers, and social ranking behavior so the product feels coherent to users.</p>
       </div>
 
       <h3>Canonical Product</h3>
@@ -1129,10 +1132,10 @@ One-line why it matters
     </section>
 
     <section id="apis">
-      <h2>12. API + Ingestion Requirements</h2>
+      <h2>12. Fresh Catalog Engine</h2>
       <div class="card">
         <h3>Primary requirement</h3>
-        <p>The app should be designed to ingest product data from many brands, retailers, and servers through adapters. The front end should never care where the product came from. It should only consume the normalized Zoe catalog API.</p>
+        <p>Zoe should continuously absorb product data from many sources while presenting one clean, unified catalog to users. Source complexity stays behind the curtain; the app experience stays simple.</p>
       </div>
 
       <h3>Adapter interface</h3>
@@ -1196,10 +1199,10 @@ GET    /api/brands/:id/drops</code></pre>
     </section>
 
     <section id="mvp">
-      <h2>13. MVP Scope</h2>
+      <h2>13. Launch Focus</h2>
       <div class="grid-2">
         <div class="card">
-          <h3>MVP must-have</h3>
+          <h3>Launch essentials</h3>
           <ol>
             <li>Auth and onboarding</li>
             <li>Style, brand, budget, and size preferences</li>
@@ -1208,7 +1211,7 @@ GET    /api/brands/:id/drops</code></pre>
             <li>Home feed</li>
             <li>Item detail page</li>
             <li>Save / wishlist</li>
-            <li>Compare tray and compare page</li>
+            <li>Compare tray and comparison workspace</li>
             <li>Personal ranked lists</li>
             <li>Rank updates feed</li>
             <li>Creator/user profiles</li>
@@ -1217,7 +1220,7 @@ GET    /api/brands/:id/drops</code></pre>
           </ol>
         </div>
         <div class="card">
-          <h3>MVP can fake or seed</h3>
+          <h3>Can be curated early</h3>
           <ol>
             <li>Start with 10-30 brands manually seeded if live APIs are not ready.</li>
             <li>Use static product JSON to build frontend first.</li>
@@ -1247,7 +1250,7 @@ GET    /api/brands/:id/drops</code></pre>
 
       <h3>Phase plan</h3>
       <ol>
-        <li><strong>Phase 1:</strong> Build frontend with seeded catalog JSON, Home, Search, Item Detail, Save, Compare, Ranking.</li>
+        <li><strong>Phase 1:</strong> Build frontend with seeded catalog JSON, Home, Search, Rank, Profile, Item Detail, Save, Compare, Ranking.</li>
         <li><strong>Phase 2:</strong> Add backend catalog service and source adapter pattern.</li>
         <li><strong>Phase 3:</strong> Add live brand/retailer/affiliate feeds and scheduled ingestion.</li>
         <li><strong>Phase 4:</strong> Add personalized feed, ranking updates, restock/price alerts.</li>
@@ -1256,24 +1259,24 @@ GET    /api/brands/:id/drops</code></pre>
     </section>
 
     <section id="agent">
-      <h2>14. Coding Agent Instructions</h2>
+      <h2>14. Build Narrative</h2>
       <div class="card">
-        <h3>Build goal</h3>
+        <h3>Build intention</h3>
         <p>Create a mobile-first app prototype for Zoe Fashion that demonstrates unified product browsing, side-by-side comparison, ranking, wishlist, and a minimal addictive feed.</p>
       </div>
 
-      <h3>Frontend implementation guidance</h3>
+      <h3>Frontend experience direction</h3>
       <ul>
-        <li>Use a mobile-first layout with a fixed bottom tab bar: Home, Search, Compare, Rank, Profile.</li>
+        <li>Use a mobile-first layout with a fixed bottom tab bar: Home, Search, Rank, Profile.</li>
         <li>Keep UI minimal. Large product images, short text, soft neutral colors.</li>
         <li>Every product card should expose Save, Compare, and Rank.</li>
         <li>Use mock data first if real APIs are not available.</li>
-        <li>Implement a Compare Tray that persists selected items across screens.</li>
+        <li>Implement a Compare Tray that persists selected items across primary tabs/screens.</li>
         <li>Implement an Item Detail page with offers, alternatives, rankings, fit notes, and comparison actions.</li>
         <li>Implement ranking lists and rank movement events.</li>
       </ul>
 
-      <h3>Backend implementation guidance</h3>
+      <h3>Backend platform direction</h3>
       <ul>
         <li>Create a normalized product catalog API.</li>
         <li>Create source adapters for brand or retailer feeds.</li>
@@ -1295,7 +1298,7 @@ GET    /api/brands/:id/drops</code></pre>
   compare_groups.json
   wishlist.json</code></pre>
 
-      <h3>Acceptance criteria</h3>
+      <h3>Launch-ready outcomes</h3>
       <ol>
         <li>User can browse a clean Home feed of fashion items and ranking cards.</li>
         <li>User can search products by brand, category, and style tag.</li>
@@ -1317,7 +1320,7 @@ GET    /api/brands/:id/drops</code></pre>
       </div>
     </section>
 
-    <p class="footer-note">Zoe Fashion App Spec — updated for unified catalog ingestion, comparison-first purchase decisions, addictive fashion browsing, and minimal mobile UI.</p>
+    <p class="footer-note">Zoe Fashion Product Story — unified fashion discovery, confidence-first comparison, and ranking-powered social taste in a minimal mobile experience.</p>
   </main>
 </body>
 </html>
