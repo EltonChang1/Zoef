@@ -3,26 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zoe Fashion - Sprint 0 Scaffold</title>
+  <title>ZOE Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,200..700,0..1,0" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <div id="dev-backend-banner" class="dev-backend-banner" role="status" aria-live="polite"></div>
   <main class="app-shell">
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Sprint 0 Scaffold</p>
-        <h1>Zoe Fashion</h1>
+      <div class="topbar-row">
+        <button class="icon-button" type="button" aria-label="Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h1 class="logo">ZOE</h1>
+        <button class="icon-button" type="button" aria-label="Notifications">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
       </div>
-      <input id="global-search" type="search" placeholder="Search products, brands, tags..." />
+      <div class="search-field-wrap">
+        <span class="material-symbols-outlined search-icon">search</span>
+        <input id="global-search" type="search" placeholder="Search products, brands, rankings..." />
+      </div>
     </header>
 
     <section id="view" class="view" aria-live="polite"></section>
 
     <nav class="tabbar" aria-label="Primary navigation">
-      <button data-tab="home" class="tab is-active">Home</button>
-      <button data-tab="search" class="tab">Search</button>
-      <button data-tab="rank" class="tab">Rank</button>
-      <button data-tab="profile" class="tab">Profile</button>
+      <button data-tab="home" class="tab is-active" type="button">
+        <span class="material-symbols-outlined">home</span>
+        <span>Home</span>
+      </button>
+      <button data-tab="search" class="tab" type="button">
+        <span class="material-symbols-outlined">search</span>
+        <span>Search</span>
+      </button>
+      <button data-tab="rank" class="tab" type="button">
+        <span class="material-symbols-outlined">leaderboard</span>
+        <span>Rank</span>
+      </button>
+      <button data-tab="profile" class="tab" type="button">
+        <span class="material-symbols-outlined">person</span>
+        <span>Profile</span>
+      </button>
     </nav>
   </main>
 

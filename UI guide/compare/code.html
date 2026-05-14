@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZOE - Comparison Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed-dim": "#c9c8b2",
+                "primary-fixed": "#f0dfd8",
+                "on-tertiary-fixed-variant": "#474838",
+                "outline-variant": "#d1c4be",
+                "primary-fixed-dim": "#d3c3bd",
+                "on-primary-container": "#958782",
+                "error-container": "#ffdad6",
+                "surface-bright": "#fbf9f6",
+                "surface-container": "#efeeeb",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-container": "#8c8b78",
+                "tertiary-fixed": "#e5e4ce",
+                "on-secondary-fixed-variant": "#5f3d44",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                "surface": "#fbf9f6",
+                "secondary-fixed-dim": "#eabac2",
+                "secondary-container": "#ffced6",
+                "outline": "#807570",
+                "on-background": "#1b1c1a",
+                "error": "#ba1a1a",
+                "background": "#fbf9f6",
+                "on-tertiary-fixed": "#1c1c0f",
+                "inverse-on-surface": "#f2f0ed",
+                "inverse-primary": "#d3c3bd",
+                "surface-container-highest": "#e4e2df",
+                "on-secondary-fixed": "#2e1319",
+                "on-surface-variant": "#4e4541",
+                "on-primary": "#ffffff",
+                "secondary-fixed": "#ffd9df",
+                "on-error-container": "#93000a",
+                "on-secondary-container": "#7a555c",
+                "primary": "#130b08",
+                "surface-container-high": "#eae8e5",
+                "secondary": "#79545b",
+                "on-primary-fixed-variant": "#4f4440",
+                "surface-variant": "#e4e2df",
+                "tertiary-container": "#232416",
+                "surface-tint": "#685c57",
+                "tertiary": "#0d0e04",
+                "on-secondary": "#ffffff",
+                "surface-container-low": "#f5f3f0",
+                "surface-dim": "#dbdad7",
+                "primary-container": "#2a211d",
+                "on-surface": "#1b1c1a",
+                "inverse-surface": "#30312f",
+                "on-primary-fixed": "#221a16"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "lg": "24px",
+                "xs": "4px",
+                "base": "4px",
+                "xl": "32px",
+                "sm": "8px",
+                "gutter": "16px",
+                "container_margin_mobile": "16px",
+                "container_margin_desktop": "40px",
+                "md": "16px"
+        },
+        "fontFamily": {
+                "display-lg": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "display-lg-mobile": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "title-sm": [
+                        "Inter"
+                ],
+                "label-sm": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "display-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.04em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "38px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "title-sm": [
+                        "18px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "10px",
+                        {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: #FBF9F6;
+    color: #2A211D;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen pb-40 overflow-x-hidden">
+<!-- Header (Task Focused - Navigation Suppressed as per instructions for sub-pages with close action) -->
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md px-gutter py-md flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="font-title-sm text-title-sm text-primary">Compare</span>
+</div>
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto py-lg md:py-xl flex flex-col px-gutter gap-lg">
+<!-- Winner Recommendation -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<div class="flex items-center gap-2 mb-md">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<span class="font-title-sm text-secondary">ZOE Pick</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Polène" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHD2J702M1yDMQ-1D5SomLfy3LMan5vPRvE960y07cW5awhd3OqTB6SK_PcGGPq3srmdk1ndreskxUMk0nWck-9r8BSv8Rrc6a-NDbf22mZiqbF_MVe9z-DzwDZHcsNlDYZp5iMoPREesSB9fB6BQVMsIvA5h-xO4yUxejiuL2DsvPByvyDWgKWM8oTaLMIJ9uGlXFb4YP-tyUdO1n1YrSSIO37RwC1bdCa2Z03wPnYX8om58rzbFa2_SWBDQMnXgaYNwIeX2slW0R"/>
+</div>
+<div>
+<h3 class="font-body-lg font-semibold text-primary">Polène Numero Dix</h3>
+<p class="font-body-md text-on-surface-variant">Best overall value</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-md">
+<span class="px-3 py-1 bg-secondary/10 text-secondary font-label-md rounded-full border border-secondary/20">Better price</span>
+<span class="px-3 py-1 bg-secondary/10 text-secondary font-label-md rounded-full border border-secondary/20">More saves</span>
+<span class="px-3 py-1 bg-secondary/10 text-secondary font-label-md rounded-full border border-secondary/20">Structured shape</span>
+</div>
+</div>
+<!-- Product Summary Section -->
+<div class="flex flex-col gap-md">
+<!-- Khaite -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative shadow-sm">
+<div class="absolute -top-3 -right-2 bg-primary text-on-primary text-label-sm px-2 py-1 rounded-full shadow-sm border border-white">Luxury Pick</div>
+<div class="w-24 h-24 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Khaite" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9dlJZAF9B3PlCMUO31xs4i6zHIWD_YjYMumm8NtDHn0LXuJS5qqpPn-adWik1tBBXQ8df-EjDpqXiOJ5_IDR3__Fx3KjCBLD5Ie45CTp9R3njwEyNUrttwAo2wtyI5HG2znAKHXUE1Ah2ba9873eMzgW1AZpitlMtXUxa2yp1vqmd2LG2HYl3_n16sD5e3BtlXjGfzK7dSAJufONeseaqc3j_09wnKXWMoSkI6H9hgivPmUYSnTEEfdS3y8g_VedyaQ9WNLxiG4rm"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Khaite</span>
+<h3 class="font-body-md font-semibold text-primary leading-tight mt-1">Khaite Lotus Bag</h3>
+</div>
+<div class="font-body-md font-medium text-primary mt-1">$1,200</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 bg-primary/10 text-primary font-label-sm rounded-full">#4 Hobos</span>
+<span class="flex items-center gap-xs text-on-surface-variant font-label-sm"><span class="material-symbols-outlined text-[14px]">bookmark</span>12.4k</span>
+</div>
+</div>
+</div>
+<!-- Polène -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative shadow-sm">
+<div class="absolute -top-3 -right-2 bg-secondary text-on-secondary text-label-sm px-2 py-1 rounded-full shadow-sm border border-white">Most Saved</div>
+<div class="w-24 h-24 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Polène" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHD2J702M1yDMQ-1D5SomLfy3LMan5vPRvE960y07cW5awhd3OqTB6SK_PcGGPq3srmdk1ndreskxUMk0nWck-9r8BSv8Rrc6a-NDbf22mZiqbF_MVe9z-DzwDZHcsNlDYZp5iMoPREesSB9fB6BQVMsIvA5h-xO4yUxejiuL2DsvPByvyDWgKWM8oTaLMIJ9uGlXFb4YP-tyUdO1n1YrSSIO37RwC1bdCa2Z03wPnYX8om58rzbFa2_SWBDQMnXgaYNwIeX2slW0R"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Polène</span>
+<h3 class="font-body-md font-semibold text-primary leading-tight mt-1">Polène Numero Dix</h3>
+</div>
+<div class="font-body-md font-medium text-primary mt-1">$460</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary font-label-sm rounded-full">#12 Trending</span>
+<span class="flex items-center gap-xs text-on-surface-variant font-label-sm"><span class="material-symbols-outlined text-[14px]">bookmark</span>45.2k</span>
+</div>
+</div>
+</div>
+<!-- Madewell -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex gap-md relative shadow-sm">
+<div class="w-24 h-24 rounded-lg overflow-hidden bg-surface-container-high flex-shrink-0">
+<img alt="Madewell" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5noCiILaw4LJrxNl9QDCSxyRr90rWx34Kf4DvZPDFzMnd2LAArYD1UgnMhi4agsyXGTGLozJAaubjAYQX0sJqzybjFpQaxcbZtMRm862hKTgS007EifhQxNywxq11ZemNPRSPG_ZNkHChGHKN5N9ovHqKSbBANyYrvTEwjhCQdhqTzJVz3c1bbm8xcCgXsisTCsO8JpCTFedj_LiqDde0_EyduFvmWfYEdIkNu3VB3cMuP9zReTlBW4uAMo7oTqNjz_SFaNfZoAnU"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider">Madewell</span>
+<h3 class="font-body-md font-semibold text-primary leading-tight mt-1">The Leather Tote</h3>
+</div>
+<div class="font-body-md font-medium text-primary mt-1">$188</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 bg-outline-variant/30 text-on-surface-variant font-label-sm rounded-full">Classic</span>
+<span class="flex items-center gap-xs text-on-surface-variant font-label-sm"><span class="material-symbols-outlined text-[14px]">bookmark</span>8.1k</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Accordions -->
+<div class="flex flex-col gap-4 mt-4">
+<!-- Price & Value (Open) -->
+<div class="border-b border-outline-variant/50 pb-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-sm text-primary">Price &amp; Value</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_less</span>
+</div>
+<div class="flex flex-col gap-3 pl-2 border-l-2 border-outline-variant/30">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Khaite</span>
+<span class="font-body-md font-semibold text-primary">$1,200</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Polène</span>
+<span class="font-body-md font-semibold text-primary">$460</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Madewell</span>
+<span class="font-body-md font-semibold text-primary">$188</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-outline-variant/30 mt-1">
+<span class="font-label-md text-secondary">Price Range Difference</span>
+<span class="font-label-md font-semibold text-secondary">$1,012</span>
+</div>
+</div>
+</div>
+<!-- Style (Open) -->
+<div class="border-b border-outline-variant/50 pb-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-sm text-primary">Style</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_less</span>
+</div>
+<div class="flex flex-col gap-3 pl-2 border-l-2 border-outline-variant/30">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Khaite</span>
+<span class="font-body-md text-primary">Slouchy Hobo</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Polène</span>
+<span class="font-body-md text-primary">Structured Crescent</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Madewell</span>
+<span class="font-body-md text-primary">Oversized Tote</span>
+</div>
+</div>
+</div>
+<!-- Material (Open) -->
+<div class="border-b border-outline-variant/50 pb-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-sm text-primary">Material</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_less</span>
+</div>
+<div class="flex flex-col gap-3 pl-2 border-l-2 border-outline-variant/30">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Khaite</span>
+<span class="font-body-md text-primary">Calfskin</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Polène</span>
+<span class="font-body-md text-primary">Full-grain Calf</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Madewell</span>
+<span class="font-body-md text-primary">Italian Leather</span>
+</div>
+</div>
+</div>
+<!-- Collapsed Sections -->
+<div class="border-b border-outline-variant/50 py-3 flex justify-between items-center">
+<h2 class="font-title-sm text-primary">Brand</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="border-b border-outline-variant/50 py-3 flex justify-between items-center">
+<h2 class="font-title-sm text-primary">ZOE Rank</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="border-b border-outline-variant/50 py-3 flex justify-between items-center">
+<h2 class="font-title-sm text-primary">Saves</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="border-b border-outline-variant/50 py-3 flex justify-between items-center">
+<h2 class="font-title-sm text-primary">Details</h2>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Action Buttons Footer -->
+<div class="pt-lg pb-md flex flex-col gap-md mt-6">
+<button class="w-full py-4 rounded-xl bg-primary text-on-primary font-title-sm hover:opacity-90 transition-opacity shadow-sm">
+        Shop Winner
+      </button>
+<button class="w-full py-3 rounded-xl border border-outline-variant bg-white text-primary font-label-md hover:bg-surface-container-low transition-colors shadow-sm">
+        Save Comparison
+      </button>
+<button class="w-full py-3 rounded-xl border border-outline-variant bg-white text-primary font-label-md flex items-center justify-center gap-xs hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">share</span> Ask Friends
+      </button>
+</div>
+</main>
+<!-- Bottom Compare Tray Module (Visual Anchor) -->
+<div class="fixed bottom-0 left-0 w-full z-50 bg-surface-variant/95 backdrop-blur-[20px] border-t border-outline-variant/50 p-md shadow-[0_-4px_20px_rgba(42,33,29,0.08)]">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant hidden md:block mr-md">Comparing (3)</span>
+<div class="flex flex-wrap gap-2">
+<div class="w-12 h-12 rounded-lg border border-outline-variant/50 overflow-hidden shadow-sm">
+<img alt="Thumb 1" class="w-full h-full object-cover" data-alt="Thumbnail of a black luxury hobo bag on a clean white background, evoking premium fashion editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_VYyRAQ_ovH50H8Bcdc_C_SO4m3b0aBO5a-8cO2MfBQiW79oJV9GJMmxMTnQf3qHSr1Ms_5iagz_Z-wWUhTRhnX33N1W3v69x94DB4EbgLkaB_noZsO5awaBUiLTslaaKu929OQHNnj3j8hrZNTKM8OBXkfGOcihV8DIPibBIxCcUbpZYt1HFNO2jJf5bFVQzT4P2xE5IIjvvvbS7_CM0hakHg-3sTH3u8Gt640UspENQLivUr3uLpuJewjXU8x_3eEFRp2NlKQE_"/>
+</div>
+<div class="w-12 h-12 rounded-lg border border-outline-variant/50 overflow-hidden shadow-sm">
+<img alt="Thumb 2" class="w-full h-full object-cover" data-alt="Thumbnail of a taupe structured crossbody bag against a soft warm studio backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz0zmkm3AwQzmvjf0pUZDdMh1A-eIzlarx1iyMsqwAGY-JRmucrVNg6R0kJlneLNOblwD1uynKX7mKNlu9NL2goNNXHy4LXJzSiiBACD0jQz7I8bHLv_oW4YcWrATbTSMY8TPVgZ0dADQP7D8Kl76GhV9wAVJ6HaT4pRxcLH0Z8cy26qG8_WxcF9iajU2lub_Hl6-bx8cbyT1RqQ0sKDF6GYmZy8j11jzATr1jciFinIta-nrvvb5vi59F4cnB7_AluP4WuqhPapkb"/>
+</div>
+<div class="w-12 h-12 rounded-lg border border-outline-variant/50 overflow-hidden shadow-sm">
+<img alt="Thumb 3" class="w-full h-full object-cover" data-alt="Thumbnail of a classic brown leather tote bag on a bright, minimalist surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClIb9NpEAqot5erLLkmqvFoirIImTHUFf4cfVJgYkfcpk8qbj8nHUA0HpC45-ul4Ew-TQUCNNEQ8wyyukuBPFKwPyC0_9nTd33V4I_xB5c-YQRQKZd2YlTBpKIxk8Ou62LPAHmW89Y2JNHYIQ5JNZ94AOUJ0A6AoXQzKE-nje03dNPdAdA2s_G8kJgXbWeGtdYU50ZOwaTmOCJchTbJ9egqp-JmVDvq1UpFV4P_Mc6bduJ2YOLTpOFmCYDIK944PxQC88rfDkbFlGg"/>
+</div>
+<button class="w-12 h-12 rounded-lg border-2 border-dashed border-outline-variant bg-surface-bright flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="text-[8px] font-medium uppercase mt-0.5">Item</span>
+</button>
+</div>
+</div>
+<button class="font-label-sm text-label-sm text-primary underline underline-offset-2 ml-4 flex-shrink-0">Clear All</button>
+</div>
+</div>
+</body></html>

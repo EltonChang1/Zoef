@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZOE - Search &amp; Explore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary-fixed-dim": "#c9c8b2",
+                  "primary-fixed": "#f0dfd8",
+                  "on-tertiary-fixed-variant": "#474838",
+                  "outline-variant": "#d1c4be",
+                  "primary-fixed-dim": "#d3c3bd",
+                  "on-primary-container": "#958782",
+                  "error-container": "#ffdad6",
+                  "surface-bright": "#fbf9f6",
+                  "surface-container": "#efeeeb",
+                  "surface-container-lowest": "#ffffff",
+                  "on-tertiary-container": "#8c8b78",
+                  "tertiary-fixed": "#e5e4ce",
+                  "on-secondary-fixed-variant": "#5f3d44",
+                  "on-tertiary": "#ffffff",
+                  "on-error": "#ffffff",
+                  "surface": "#fbf9f6",
+                  "secondary-fixed-dim": "#eabac2",
+                  "secondary-container": "#ffced6",
+                  "outline": "#807570",
+                  "on-background": "#1b1c1a",
+                  "error": "#ba1a1a",
+                  "background": "#fbf9f6",
+                  "on-tertiary-fixed": "#1c1c0f",
+                  "inverse-on-surface": "#f2f0ed",
+                  "inverse-primary": "#d3c3bd",
+                  "surface-container-highest": "#e4e2df",
+                  "on-secondary-fixed": "#2e1319",
+                  "on-surface-variant": "#4e4541",
+                  "on-primary": "#ffffff",
+                  "secondary-fixed": "#ffd9df",
+                  "on-error-container": "#93000a",
+                  "on-secondary-container": "#7a555c",
+                  "primary": "#130b08",
+                  "surface-container-high": "#eae8e5",
+                  "secondary": "#79545b",
+                  "on-primary-fixed-variant": "#4f4440",
+                  "surface-variant": "#e4e2df",
+                  "tertiary-container": "#232416",
+                  "surface-tint": "#685c57",
+                  "tertiary": "#0d0e04",
+                  "on-secondary": "#ffffff",
+                  "surface-container-low": "#f5f3f0",
+                  "surface-dim": "#dbdad7",
+                  "primary-container": "#2a211d",
+                  "on-surface": "#1b1c1a",
+                  "inverse-surface": "#30312f",
+                  "on-primary-fixed": "#221a16"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "lg": "24px",
+                  "xs": "4px",
+                  "base": "4px",
+                  "xl": "32px",
+                  "sm": "8px",
+                  "gutter": "16px",
+                  "container_margin_mobile": "16px",
+                  "container_margin_desktop": "40px",
+                  "md": "16px"
+          },
+          "fontFamily": {
+                  "display-lg": [
+                          "Inter"
+                  ],
+                  "body-lg": [
+                          "Inter"
+                  ],
+                  "label-md": [
+                          "Inter"
+                  ],
+                  "headline-md": [
+                          "Inter"
+                  ],
+                  "display-lg-mobile": [
+                          "Inter"
+                  ],
+                  "body-md": [
+                          "Inter"
+                  ],
+                  "title-sm": [
+                          "Inter"
+                  ],
+                  "label-sm": [
+                          "Inter"
+                  ]
+          },
+          "fontSize": {
+                  "display-lg": [
+                          "40px",
+                          {
+                                  "lineHeight": "48px",
+                                  "letterSpacing": "-0.02em",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "body-lg": [
+                          "16px",
+                          {
+                                  "lineHeight": "24px",
+                                  "fontWeight": "400"
+                          }
+                  ],
+                  "label-md": [
+                          "12px",
+                          {
+                                  "lineHeight": "16px",
+                                  "letterSpacing": "0.04em",
+                                  "fontWeight": "500"
+                          }
+                  ],
+                  "headline-md": [
+                          "24px",
+                          {
+                                  "lineHeight": "32px",
+                                  "letterSpacing": "-0.01em",
+                                  "fontWeight": "500"
+                          }
+                  ],
+                  "display-lg-mobile": [
+                          "32px",
+                          {
+                                  "lineHeight": "38px",
+                                  "letterSpacing": "-0.02em",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "body-md": [
+                          "14px",
+                          {
+                                  "lineHeight": "20px",
+                                  "fontWeight": "400"
+                          }
+                  ],
+                  "title-sm": [
+                          "18px",
+                          {
+                                  "lineHeight": "24px",
+                                  "fontWeight": "600"
+                          }
+                  ],
+                  "label-sm": [
+                          "10px",
+                          {
+                                  "lineHeight": "14px",
+                                  "letterSpacing": "0.02em",
+                                  "fontWeight": "600"
+                          }
+                  ]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased pb-24 md:pb-0">
+<!-- TopAppBar Web (Hidden on Mobile) -->
+<header class="hidden md:flex sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 justify-between items-center px-container_margin_desktop py-md w-full">
+<div class="flex items-center gap-gutter">
+<button class="text-primary hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-display-lg text-display-lg tracking-tighter text-primary">ZOE</div>
+</div>
+<div class="flex-1 max-w-2xl mx-gutter">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant z-10" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low rounded-xl py-sm pl-xl pr-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant border border-outline-variant focus:outline-none focus:border-outline focus:ring-1 focus:ring-outline transition-all" placeholder="Best Black Loafers" type="text" value="Best Black Loafers"/>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<!-- TopAppBar Mobile -->
+<header class="md:hidden sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex flex-col px-container_margin_mobile py-md gap-sm w-full">
+<div class="flex justify-between items-center w-full">
+<button class="text-primary hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary">ZOE</div>
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+<div class="relative w-full mt-sm">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant z-10" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low rounded-xl py-sm pl-xl pr-sm font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant border border-outline-variant focus:outline-none focus:border-outline focus:ring-1 focus:ring-outline transition-all" placeholder="Best Black Loafers" type="text" value="Best Black Loafers"/>
+</div>
+</header>
+<main class="w-full max-w-7xl mx-auto md:px-container_margin_desktop px-container_margin_mobile pt-md">
+<!-- Segmented Tabs -->
+<div class="w-full overflow-x-auto no-scrollbar mb-md">
+<div class="flex gap-lg min-w-max border-b border-outline-variant/50 pb-sm">
+<button class="font-label-md text-label-md text-primary border-b-2 border-primary pb-sm px-xs font-semibold">Top</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-xs">Items</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-xs">Rankings</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-xs">Brands</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-xs">Creators</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-sm px-xs">Alternatives</button>
+</div>
+</div>
+<!-- Filters Row -->
+<div class="w-full overflow-x-auto no-scrollbar mb-xl">
+<div class="flex gap-sm min-w-max">
+<button class="flex items-center gap-xs px-sm py-xs bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+          Category
+          <span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+          Brand
+          <span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+          Price
+          <span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+<button class="flex items-center gap-xs px-sm py-xs bg-surface-container-lowest border border-outline-variant rounded-full font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+          All Filters
+        </button>
+</div>
+</div>
+<!-- Popular Rankings Section -->
+<section class="mb-xl">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-title-sm text-title-sm text-primary">Popular Rankings</h2>
+<button class="font-label-md text-label-md text-secondary hover:underline">View All</button>
+</div>
+<div class="w-full overflow-x-auto no-scrollbar pb-md">
+<div class="flex gap-gutter min-w-max">
+<!-- Ranking Card 1 -->
+<div class="w-64 bg-surface-container-lowest rounded-xl border border-outline-variant p-md flex flex-col gap-sm shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+<img alt="Fall Jacket Thumbnail" class="w-full h-full object-cover" data-alt="Close up photography of a folded olive green waxed cotton field jacket lying on a textured white background. The jacket features brass snap buttons and a corduroy collar. The lighting is soft and natural, casting delicate shadows that emphasize the texture of the fabric. The overall mood is rugged yet refined, fitting a modern editorial style with a neutral palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZd6-hoE-5aMpHng8GFn0S0IowerxIZhQ2X5nbKvBb-63PqS_iKiOgDqY2kgCR8kMoKbpaW24ifXOKi0yy0R0fgERCQwuQM3TpWixEhO1BcG-ctsKkEKxjWau8An0M7nXcK-TytuI1H-9aznvG6_vJvGd2zFjUfSidWVywDlSTZv3PxaEgg53-edylMidqM0yyqs0DY9v19Es6vlxnYlrOsRCinfCrratrJq1HwZAlEHbAT6qb6x4CTK6HXzP4f1wyqUWObWqlFOFy"/>
+</div>
+<span class="px-xs py-base bg-secondary-fixed text-on-secondary-fixed rounded font-label-sm text-[10px] uppercase tracking-widest">Trending</span>
+</div>
+<h3 class="font-body-md text-body-md font-semibold text-primary mt-xs">Best Fall Jackets 2024</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Curated selection of versatile layers for transitional weather.</p>
+<div class="flex items-center gap-xs mt-auto pt-sm border-t border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="format_list_numbered">format_list_numbered</span>
+<span class="font-label-md text-label-md text-on-surface-variant">12 Items</span>
+</div>
+</div>
+<!-- Ranking Card 2 -->
+<div class="w-64 bg-surface-container-lowest rounded-xl border border-outline-variant p-md flex flex-col gap-sm shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+<img alt="Work Pants Thumbnail" class="w-full h-full object-cover" data-alt="Detail shot of the waistband and front pocket of tailored navy blue wool trousers. The fabric drapes elegantly, showing a subtle twill weave. The background is a crisp, off-white studio setting with highly controlled, soft lighting. The image conveys professional sophistication and high-quality tailoring in a minimalist, modern editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM4jCnVDjuvpYqJqLesHRX1TFnarwgg1yzaboUy1R05cHa2a_5a3dSjSICo1GChapvzUTs4itaJznQJTiUN_DcFTwDlmuW3GaH1eRJ8AH2GtVg_rOv61LtjWpbrzLieVjrLRgm8LEZoCRU_QVqmIsViSC4nA6l186h4FTn_4tBOFUc1ppbJt1hbWCGs6RnoI7jsy3LUe6c_iT66fv8iVhsl7gqFk64jeXPvrybtNLuWFdhkDhSnpUSto7TchgjH8GrKs622ZfKzxBd"/>
+</div>
+</div>
+<h3 class="font-body-md text-body-md font-semibold text-primary mt-xs">Work Pants under $100</h3>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">Affordable office essentials that don't compromise on fit.</p>
+<div class="flex items-center gap-xs mt-auto pt-sm border-t border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="format_list_numbered">format_list_numbered</span>
+<span class="font-label-md text-label-md text-on-surface-variant">8 Items</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Grid Results -->
+<section>
+<h2 class="font-title-sm text-title-sm text-primary mb-md">Results for "Best Black Loafers"</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Result Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col shadow-sm group">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Black Loafer 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of sleek, polished black leather penny loafers styled on a minimalist concrete plinth against a seamless white background. The lighting is crisp and directional, creating strong highlights on the leather's surface that emphasize its premium quality. The composition is highly editorial, focusing on the shoe's elegant silhouette and classic design details within a clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARrUtd-1w7z0-b4AePQCwo0gBOw5wPrAoFlgsEmTsRiDMX7yxMZ7OmeRzOQgjVqo2IAHklqqi4GXHBtilTfqJpXl-RRkHljx7Umo7GWRAR_37ddbEFm30n9d2XfjnL3sq-Dd1vJAO92_t7hfAwn6ABu6fHCL4A9WComxQ5p1JW4KnPS3zxKHzqgke7AjHj_lP9Y7tI053abx5Rms0IZX-Llknh4lQ3xex_-hYHiWZGZS54rBDqTloz7VT7eU5DnWgyD8A__tU1XbhW"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur flex items-center justify-center text-on-surface hover:text-secondary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<div class="font-label-md text-label-md text-on-surface-variant mb-xs">Brand Name</div>
+<h3 class="font-body-md text-body-md text-primary font-medium line-clamp-1 mb-sm">Classic Penny Loafer</h3>
+<div class="font-body-md text-body-md text-on-surface font-semibold mb-sm">$195</div>
+<div class="mt-auto flex gap-sm">
+<button class="flex-1 py-xs border border-outline-variant rounded font-label-md text-label-md text-primary hover:bg-surface-container transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="compare_arrows">compare_arrows</span>
+                 Compare
+              </button>
+<button class="flex-1 py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                 Rank
+              </button>
+</div>
+</div>
+</div>
+<!-- Result Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col shadow-sm group">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Black Loafer 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A single chunky-soled black leather loafer displayed on a staggered, neutral-toned geometric pedestal. The setting features a soft, warm light that creates gentle shadows, highlighting the robust construction and heavy lug sole of the shoe. The overall style is contemporary and edgy, fitting an avant-garde fashion editorial context with a minimalist, high-end feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtho_8XAC8VdE5SMRPdUaMKxMIVGf-8pePzuu6TKvoU9CnIkBm_Fg_7_KYFiARYqZ6-4YEUB4jHhPwofqouseqVK5Nj7QJJhhaesno8cg-ELlOWT3PapaTWkV5508H0NkWaRjlmtGHUz6qzkskT42qLAjN8KPG6ZfAsYpyoQVzFt0P5zyiFYNwiBfE90jyCGG2_vW17jPNls47CjX0JpkiQCj4RgXfxPk4sgimIX7hR6vgzRcb9lC7AFaspmwhhoWbo0_jqHulVkkB"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur flex items-center justify-center text-on-surface hover:text-secondary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<div class="font-label-md text-label-md text-on-surface-variant mb-xs">Studio Label</div>
+<h3 class="font-body-md text-body-md text-primary font-medium line-clamp-1 mb-sm">Chunky Sole Loafer</h3>
+<div class="font-body-md text-body-md text-on-surface font-semibold mb-sm">$250</div>
+<div class="mt-auto flex gap-sm">
+<button class="flex-1 py-xs border border-outline-variant rounded font-label-md text-label-md text-primary hover:bg-surface-container transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="compare_arrows">compare_arrows</span>
+                 Compare
+              </button>
+<button class="flex-1 py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                 Rank
+              </button>
+</div>
+</div>
+</div>
+<!-- Result Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col shadow-sm group">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Black Loafer 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A pair of sleek black suede loafers with tassel detailing, resting on a textured linen surface. The image is bathed in soft, diffused daylight, lending a relaxed yet luxurious atmosphere to the scene. The rich texture of the suede is captured in high detail, contrasting subtly with the crisp, white backdrop. The aesthetic is refined, comfortable, and classically elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABtqSLLvybKRHiB3xhhD_Tq0QpLmw_2HyEb51dStDKju25zwbvDFk-RRGD0TQUCiW0MHq5GoD9pxv4lL_1sFJIg79U29VE7-1XoTgkz0VGHu-6Jb_Ve0wv7fY5H211pJvB0TE5cv_7MVjHBsMfZU3YlBa-8RIa2y40bKdpxpI_t7SCe8_tVRgEQvfsay_LA2W4bMD0TxsLOru_ds8mgiyd9z1QpZPL-4T0wVRhUtXgi0iYrffCbksNXCmXc-1NaRi8GqED_RuIZLm9"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs">
+<button class="w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur flex items-center justify-center text-on-surface hover:text-secondary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+</div>
+<div class="p-sm flex flex-col flex-1">
+<div class="font-label-md text-label-md text-on-surface-variant mb-xs">Heritage Co.</div>
+<h3 class="font-body-md text-body-md text-primary font-medium line-clamp-1 mb-sm">Suede Tassel Loafer</h3>
+<div class="font-body-md text-body-md text-on-surface font-semibold mb-sm">$180</div>
+<div class="mt-auto flex gap-sm">
+<button class="flex-1 py-xs border border-outline-variant rounded font-label-md text-label-md text-primary hover:bg-surface-container transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="compare_arrows">compare_arrows</span>
+                 Compare
+              </button>
+<button class="flex-1 py-xs bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                 Rank
+              </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim z-50 border-t border-outline-variant dark:border-outline shadow-sm pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 duration-200 tap-highlight-none" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-xs">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed font-bold relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 duration-200 tap-highlight-none" href="#">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-sm text-label-sm mt-xs">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 duration-200 tap-highlight-none" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-xs">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 duration-200 tap-highlight-none" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-xs">Profile</span>
+</a>
+</nav>
+</body></html>

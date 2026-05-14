@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZOE - Rank</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c9c8b2",
+                        "primary-fixed": "#f0dfd8",
+                        "on-tertiary-fixed-variant": "#474838",
+                        "outline-variant": "#d1c4be",
+                        "primary-fixed-dim": "#d3c3bd",
+                        "on-primary-container": "#958782",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f6",
+                        "surface-container": "#efeeeb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#8c8b78",
+                        "tertiary-fixed": "#e5e4ce",
+                        "on-secondary-fixed-variant": "#5f3d44",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf9f6",
+                        "secondary-fixed-dim": "#eabac2",
+                        "secondary-container": "#ffced6",
+                        "outline": "#807570",
+                        "on-background": "#1b1c1a",
+                        "error": "#ba1a1a",
+                        "background": "#fbf9f6",
+                        "on-tertiary-fixed": "#1c1c0f",
+                        "inverse-on-surface": "#f2f0ed",
+                        "inverse-primary": "#d3c3bd",
+                        "surface-container-highest": "#e4e2df",
+                        "on-secondary-fixed": "#2e1319",
+                        "on-surface-variant": "#4e4541",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffd9df",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#7a555c",
+                        "primary": "#130b08",
+                        "surface-container-high": "#eae8e5",
+                        "secondary": "#79545b",
+                        "on-primary-fixed-variant": "#4f4440",
+                        "surface-variant": "#e4e2df",
+                        "tertiary-container": "#232416",
+                        "surface-tint": "#685c57",
+                        "tertiary": "#0d0e04",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f5f3f0",
+                        "surface-dim": "#dbdad7",
+                        "primary-container": "#2a211d",
+                        "on-surface": "#1b1c1a",
+                        "inverse-surface": "#30312f",
+                        "on-primary-fixed": "#221a16"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "gutter": "16px",
+                        "container_margin_mobile": "16px",
+                        "container_margin_desktop": "40px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-gutter py-md w-full">
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary">ZOE</h1>
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-screen-md mx-auto w-full px-gutter pt-lg pb-xl space-y-xl"><div class="flex border-b border-outline-variant/30 mb-lg">
+<button class="flex-1 py-3 text-center border-b-2 border-secondary text-secondary font-title-sm">
+Following
+</button>
+<button class="flex-1 py-3 text-center text-on-surface-variant font-label-md hover:text-primary">
+Trending
+</button>
+<button class="flex-1 py-3 text-center text-on-surface-variant font-label-md hover:text-primary">
+My Lists
+</button>
+</div><section>
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-primary">Influencer Picks</h2>
+<button class="text-secondary font-label-md">See More</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-md -mx-gutter px-gutter pb-xs">
+<div class="w-48 shrink-0 bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm">
+<div class="flex items-center gap-sm mb-md">
+<img alt="Maya" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUTSJWP2n4t-PSAWZsEc4aadV_nnQNVQE4UIUkcEkaXF1C1X0AeN3QyoBu2cV7AserOfIonaxS0RwN8ti9Gw-GVkSLJqjB0aW2ZTS7MUZ0JiI_DgPPlR7_L6UPglvTRHAY4hRoeCqn1MgeKYrWr8Ka0_ChZUODTYsm5JivznnzZug7iHBP-prCsMzZ9NU9S5d7BXqWQ4Xaj_qt2Zc9pKNjckTSXx5laMuPCnbYbLzb93D_rGTDduHYQces8SC4qCT3X-ty6BP4gjFC"/>
+<div>
+<p class="font-title-sm text-label-md">Maya</p>
+<p class="text-[10px] text-on-surface-variant">Tastemaker</p>
+</div>
+</div>
+<p class="font-body-md text-primary mb-md">Maya's Top 5 Fall Essentials</p>
+<button class="w-full py-1.5 rounded-full border border-outline-variant text-label-sm font-bold text-on-surface-variant">Following</button>
+</div>
+<div class="w-48 shrink-0 bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm">
+<div class="flex items-center gap-sm mb-md">
+<img alt="Elena" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu91-VE_A5LenTqwrCr529sb4QoCs-1DwfkAU2fJzCXaG-jq0hVg8YSMw2g76D2XSnDOjoBnHNt4EP7gpPawNlozxkA4DS2t3EdWzbTUf-TEvKseymuwoeaOuAoYJ_4RzrDrXpJk7OtM1d_zyxGZfWqsUXXdta4UR72EyLG9JnJsRwjLoq2YesDHBbVal7wBOA61zjJgyXPecPUH_SzLIcXBMRfzX7ikvPzLi0afTafHM0xHvOnZPMgUTyYAv2hbG5-10ueejt5IsI"/>
+<div>
+<p class="font-title-sm text-label-md">Elena_Style</p>
+<p class="text-[10px] text-on-surface-variant">New for you</p>
+</div>
+</div>
+<p class="font-body-md text-primary mb-md">My Everyday Carry Favorites</p>
+<button class="w-full py-1.5 rounded-full bg-secondary text-on-secondary text-label-sm font-bold">Follow</button>
+</div>
+</div>
+</section>
+<!-- Rank Updates -->
+<section>
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-md text-headline-md text-primary">Social Feed</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Live</span>
+</div>
+<div class="space-y-sm"><div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex items-center gap-md cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Coach Brooklyn Bag" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQxiRfBAnWYD3hq46fNvP1XIqP__Xd74X-xDV9dB4JVuM81sXZqE_KOue6s6zhrNUclRD58UFemy5abgl9le6MdIgE7IQ_b2bODJ-diO1GyrnqIaoMubHxHeP9HhZIe68aHgIwx93tKkrVNOn6PW5mSJsKO9IL1MU7zPOJcmU7vXBaNbKbQPZ_WK2nsPEEgLR-Hxa2aS6A4BJmJ3VfsEa9WHoFVVL0dsWF_XG_jWNQAf10s8J1RnJGILDXI5eDJVmPU7gL2aevkD3-"/>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-body-md text-on-surface mb-1">
+<span class="font-title-sm">Elena_Style</span> moved <span class="font-bold">Coach Brooklyn Bag</span> to #2 in Everyday Bags.
+</p>
+<p class="font-label-md text-label-md text-on-surface-variant">45 mins ago</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex items-center gap-md cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0 grid grid-cols-2 gap-0.5 p-0.5">
+<div class="bg-surface-dim"></div>
+<div class="bg-surface-dim"></div>
+<div class="bg-surface-dim"></div>
+<div class="bg-surface-dim"></div>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-body-md text-on-surface mb-1">
+<span class="text-secondary font-bold">Followed by you:</span> 3 new people ranked the <span class="font-bold">Uniqlo Wide Pants</span> this week.
+</p>
+<p class="font-label-md text-label-md text-on-surface-variant">2 hours ago</p>
+</div>
+<div class="shrink-0 flex -space-x-2">
+<img alt="User" class="w-6 h-6 rounded-full border border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu91-VE_A5LenTqwrCr529sb4QoCs-1DwfkAU2fJzCXaG-jq0hVg8YSMw2g76D2XSnDOjoBnHNt4EP7gpPawNlozxkA4DS2t3EdWzbTUf-TEvKseymuwoeaOuAoYJ_4RzrDrXpJk7OtM1d_zyxGZfWqsUXXdta4UR72EyLG9JnJsRwjLoq2YesDHBbVal7wBOA61zjJgyXPecPUH_SzLIcXBMRfzX7ikvPzLi0afTafHM0xHvOnZPMgUTyYAv2hbG5-10ueejt5IsI"/>
+<img alt="User" class="w-6 h-6 rounded-full border border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUTSJWP2n4t-PSAWZsEc4aadV_nnQNVQE4UIUkcEkaXF1C1X0AeN3QyoBu2cV7AserOfIonaxS0RwN8ti9Gw-GVkSLJqjB0aW2ZTS7MUZ0JiI_DgPPlR7_L6UPglvTRHAY4hRoeCqn1MgeKYrWr8Ka0_ChZUODTYsm5JivznnzZug7iHBP-prCsMzZ9NU9S5d7BXqWQ4Xaj_qt2Zc9pKNjckTSXx5laMuPCnbYbLzb93D_rGTDduHYQces8SC4qCT3X-ty6BP4gjFC"/>
+</div>
+</div></div>
+</section>
+<!-- Trending Lists -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Trending Lists</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-md pb-sm -mx-gutter px-gutter">
+<!-- Trending Card 1 -->
+<div class="w-64 shrink-0 bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_20px_rgba(42,33,29,0.04)]">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img alt="Leather Jacket" class="w-full h-full object-cover" data-alt="A distressed, vintage-style brown leather bomber jacket styled casually on a wooden hanger against a textured, warm-toned wall. The lighting is moody and directional, emphasizing the rich patina and hardware of the jacket. The image evokes a sense of curated, timeless style with a slightly rugged edge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk3gmMOGZp2LQ8n39Gk3UFXEoQVulLFb59FGmruuW0LzfSMG3chEeK6Wu5Jw6W33VarBF-UIIbZb7xydKvl_RvUygp07w5sw696jJ-id4u1fOfWZrfUOHPJLRM0r_jqcGOVtcHIU6F3M8O4D6SqWFYxZVTOiITIrtlBoamyfVDp9j9QdYMMb7_c4oKr0RfgX2jtgq2LZz7HFiIllGVRseP-_VS_VO5Bqqh5wiDMG-ELggLRuSIPnTdB-9KX738aYHRVab-ug6z1RwI"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-primary mb-xs">Transitional Jackets</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md leading-relaxed">
+                        37 people with your style saved this jacket today.
+                    </p>
+<div class="flex -space-x-2">
+<img alt="User avatar" class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu91-VE_A5LenTqwrCr529sb4QoCs-1DwfkAU2fJzCXaG-jq0hVg8YSMw2g76D2XSnDOjoBnHNt4EP7gpPawNlozxkA4DS2t3EdWzbTUf-TEvKseymuwoeaOuAoYJ_4RzrDrXpJk7OtM1d_zyxGZfWqsUXXdta4UR72EyLG9JnJsRwjLoq2YesDHBbVal7wBOA61zjJgyXPecPUH_SzLIcXBMRfzX7ikvPzLi0afTafHM0xHvOnZPMgUTyYAv2hbG5-10ueejt5IsI"/>
+<img alt="User avatar" class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUTSJWP2n4t-PSAWZsEc4aadV_nnQNVQE4UIUkcEkaXF1C1X0AeN3QyoBu2cV7AserOfIonaxS0RwN8ti9Gw-GVkSLJqjB0aW2ZTS7MUZ0JiI_DgPPlR7_L6UPglvTRHAY4hRoeCqn1MgeKYrWr8Ka0_ChZUODTYsm5JivznnzZug7iHBP-prCsMzZ9NU9S5d7BXqWQ4Xaj_qt2Zc9pKNjckTSXx5laMuPCnbYbLzb93D_rGTDduHYQces8SC4qCT3X-ty6BP4gjFC"/>
+<img alt="User avatar" class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIWZmQk1HN2JQ22UvN5qafLBExRPfQ7Ejza1DV2MeFKdMNgfkow1jFAfHkEfMs1YWrVK0THEJDKTIxEMGuARxhANiwa29l-r9NsV9s4zMAwQsPoyF5ZWvBoxCyDVyyKcHmg_E4bgWbGgO9PkrGbMIs8XLzwODpSD1fvFwxQLS8z72XSVnMfwmu97QyXBJhnjqquQWd65kqwDy0enZJTzVAbHlP17-qjaC7QStTfLhLEFEkY0tQTd5mHVoxoHv6RA49QRFisbeqVNNS"/>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-lowest bg-surface-variant flex items-center justify-center text-[8px] font-bold text-on-surface-variant">+34</div>
+</div>
+</div>
+<!-- Trending Card 2 -->
+<div class="w-64 shrink-0 bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_20px_rgba(42,33,29,0.04)]">
+<div class="h-32 rounded-lg bg-surface-container mb-md overflow-hidden">
+<img alt="Chunky Loafers" class="w-full h-full object-cover" data-alt="A pair of highly polished, chunky black leather loafers resting on a plush, light-colored rug. The scene is bathed in natural, warm window light, creating soft highlights on the shoes. The aesthetic is contemporary classic, fitting for a curated fashion ranking platform focusing on essential footwear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5kaNzYE-2yIoay0Cm4obcD3-iE2sIacuWKWgCnH4tZ8hfIp6auaHyCuULX0QaT2A18RiHLajSHyEHjW3yqKta6tirNKbfpSNTh2OLFnC7Qu3EX9BjhnensvNLRe_n2wo5HDcS5CP0SYocoRa5EoksAZ7iNG67pkn-HFYFWj5Zk23lch1hCzXOo6xyT4959Vb18gVZgOcCKP1mPAwAbZnbv-6PkmDnS78PPZ5llitzUHuwQ7x6WsomT82S10EHJOJX87Wk_w5FuxyX"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-primary mb-xs">Office Core Footwear</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md leading-relaxed">
+                        Rapidly climbing in the community rankings this week.
+                    </p>
+<div class="flex -space-x-2">
+<img alt="User avatar" class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClhsE0GlkSpfSupwQuuFT_BA1tLJulRGvY5SUCh4k308EVwF5BdRrAf12rfcbt22lt5TMNOhmu1FgfDcmxGghJxfVOWqowB97v1Uy90NzZkeQOoRh0IGoEW4guiaBXXIna47wDT4JPFOBSqnW5WT9t5c-HeMNy-FO4lX9X2J3dFQEUV9XtaYD8Vcxf1d7A4zVZQWbN4XTsz1CrAX_rydmjcOc1IZFiSEmP5gEqzSMwH4S4CeeYYoVM2AoH7W7alI5jT2pdEQ0RLbFa"/>
+<img alt="User avatar" class="w-6 h-6 rounded-full border-2 border-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2MliYpetPOI8gvUEzHGUbtYrm5S32ZElmzp8seef5LsMDCLiEdDq_ybeiwZ5iohe-VKWXOhKdKBVIWk1hKzk_QIC2j7VGR5JuwkbwBVQc93mDH2vGt8DExnHAOpsN6D2jDKBlkkqRbgAPtDntffFC0IKFAbSYWy7A-DdfOgsNSEz91a9ZKmeirF3glHPJ1IVl4LfNygky6oTGO3CLjcKM2fx-48sMsxzwqeNQvALBu00sDzO4Bur7wo0-oHlyjavnJj60F-ahgKmK"/>
+</div>
+</div>
+</div>
+</section>
+<!-- My Rankings -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-primary">My Rankings</h2>
+<button class="text-secondary hover:text-primary transition-colors font-label-md text-label-md">View All</button>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Rank Category 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10"></div>
+<img alt="Everyday Bags Background" class="absolute top-0 left-0 w-full h-2/3 object-cover opacity-40 group-hover:opacity-60 transition-opacity" data-alt="A muted, soft-focus background image showing the texture of fine canvas and leather straps, suggesting a collection of high-quality bags. The colors are warm neutrals, creams, and soft browns. The overall feel is subtle and unobtrusive, acting as a backdrop for UI elements without distracting from the typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRkIonAH5lWbfgcjqLhoIRj4Z07DpSK2bavQoFGVVt6EoH9gNi1bQwu2oB43DJEBdNACTSNvZUlVH-1aKiMckYpmNzgo7iLdVKd0w8WrxgGTfaS5az1KE9aBfctbe06Cn7u4nrSYKmtM8IXGmSvh0c1_p0oFwGh0-rr1YYGsuj2VotzSRNdfBReJ9q5Cppc-uHt88gORsaA1FJb9XntzxHuPg5Ves3mzFFOhTAsBwkQylrpD66vMZmo_vp0E2NTzw-p7U5hWufOxen"/>
+<div class="relative z-20 flex justify-between items-start w-full">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-full font-label-sm text-label-sm">12 Items</span>
+</div>
+<div class="relative z-20">
+<h3 class="font-title-sm text-title-sm text-primary">Everyday Bags</h3>
+</div>
+</div>
+<!-- Rank Category 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10"></div>
+<img alt="Sneakers Background" class="absolute top-0 left-0 w-full h-2/3 object-cover opacity-40 group-hover:opacity-60 transition-opacity" data-alt="A soft, out-of-focus background image featuring details of modern sneaker design—mesh textures, rubber soles, and subtle color accents. The palette is muted with soft greys, whites, and a hint of pale blue. The image is abstract enough to serve as a texture rather than a focal point, maintaining the app's clean editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-mcr2NayJD4_ikS94RgB6YfhKk6gPrnVD3qtOGHRNKD_usMfyDurTDbFUvzVgC4hwh9lCIDyJm3Ua1vnzprofpeQIGirZ87RpGX7cDOFqoAmxJNv4z4IxoQESAtlj85XTQOvN_bn1Dn0N6EGySF0mZTQ5FYPuynfOF-XBmJqFeuNXY8KEwf7ByGoBC_8bBM9QnR7fR2aTz_3gP7p82cQ3GA2HCVFQS2xWxwLpzcpo7avzwW9zRn5O_bJ7ne3HLrZ9vn06fqEE-MD7"/>
+<div class="relative z-20 flex justify-between items-start w-full">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">steps</span>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded-full font-label-sm text-label-sm">8 Items</span>
+</div>
+<div class="relative z-20">
+<h3 class="font-title-sm text-title-sm text-primary">Sneaker Rotation</h3>
+</div>
+</div>
+</div>
+<button class="mt-md w-full py-3 rounded-lg border border-outline border-dashed text-primary-container flex items-center justify-center gap-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md text-label-md">Create New List</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant z-50 shadow-sm">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-label-sm text-label-sm mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold relative after:content-[''] after:absolute after:bottom-0 after:w-1 after:h-1 after:bg-secondary after:rounded-full scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-label-sm text-label-sm mt-1">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<div class="hidden md:flex fixed top-0 right-0 h-full w-64 bg-surface border-l border-outline-variant flex-col p-gutter z-50 shadow-sm">
+<div class="font-display-lg text-display-lg text-primary mb-xl">ZOE</div>
+<nav class="flex flex-col gap-lg">
+<a class="flex items-center gap-md text-on-surface-variant opacity-60 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-title-sm text-title-sm">Home</span>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant opacity-60 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+<span class="font-title-sm text-title-sm">Search</span>
+</a>
+<a class="flex items-center gap-md text-secondary font-bold relative" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-title-sm text-title-sm">Rank</span>
+<div class="absolute -left-4 w-1 h-full bg-secondary rounded-r-full"></div>
+</a>
+<a class="flex items-center gap-md text-on-surface-variant opacity-60 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-title-sm text-title-sm">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

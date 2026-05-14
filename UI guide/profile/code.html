@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zoe Fashion - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#c9c8b2",
+                      "primary-fixed": "#f0dfd8",
+                      "on-tertiary-fixed-variant": "#474838",
+                      "outline-variant": "#d1c4be",
+                      "primary-fixed-dim": "#d3c3bd",
+                      "on-primary-container": "#958782",
+                      "error-container": "#ffdad6",
+                      "surface-bright": "#fbf9f6",
+                      "surface-container": "#efeeeb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#8c8b78",
+                      "tertiary-fixed": "#e5e4ce",
+                      "on-secondary-fixed-variant": "#5f3d44",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface": "#fbf9f6",
+                      "secondary-fixed-dim": "#eabac2",
+                      "secondary-container": "#ffced6",
+                      "outline": "#807570",
+                      "on-background": "#1b1c1a",
+                      "error": "#ba1a1a",
+                      "background": "#fbf9f6",
+                      "on-tertiary-fixed": "#1c1c0f",
+                      "inverse-on-surface": "#f2f0ed",
+                      "inverse-primary": "#d3c3bd",
+                      "surface-container-highest": "#e4e2df",
+                      "on-secondary-fixed": "#2e1319",
+                      "on-surface-variant": "#4e4541",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#ffd9df",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#7a555c",
+                      "primary": "#130b08",
+                      "surface-container-high": "#eae8e5",
+                      "secondary": "#79545b",
+                      "on-primary-fixed-variant": "#4f4440",
+                      "surface-variant": "#e4e2df",
+                      "tertiary-container": "#232416",
+                      "surface-tint": "#685c57",
+                      "tertiary": "#0d0e04",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f5f3f0",
+                      "surface-dim": "#dbdad7",
+                      "primary-container": "#2a211d",
+                      "on-surface": "#1b1c1a",
+                      "inverse-surface": "#30312f",
+                      "on-primary-fixed": "#221a16"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "xs": "4px",
+                      "base": "4px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "gutter": "16px",
+                      "container_margin_mobile": "16px",
+                      "container_margin_desktop": "40px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "title-sm": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.04em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "38px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center px-gutter py-md w-full md:hidden border-b border-outline-variant/30">
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-tighter text-primary">ZOE</span>
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md justify-between items-center px-container_margin_desktop py-md w-full border-b border-outline-variant/30">
+<span class="font-display-lg text-display-lg tracking-tighter text-primary">ZOE</span>
+<div class="flex gap-lg">
+<a class="font-title-sm text-title-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-title-sm text-title-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Search</a>
+<a class="font-title-sm text-title-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Rank</a>
+<a class="font-title-sm text-title-sm text-primary" href="#">Profile</a>
+</div>
+<div class="flex gap-md">
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-70 transition-opacity tap-highlight-none">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</nav>
+<main class="px-container_margin_mobile md:px-container_margin_desktop max-w-7xl mx-auto pt-lg space-y-xl">
+<!-- Profile Header -->
+<section class="flex flex-col md:flex-row items-center md:items-start gap-lg text-center md:text-left">
+<div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-surface-container-lowest shadow-sm">
+<img alt="Profile Picture" class="w-full h-full object-cover" data-alt="A close-up portrait of a stylish woman with neutral makeup and slicked-back hair, wearing a beige cashmere sweater. She is looking directly at the camera with a calm expression. The background is a soft, warm off-white, reflecting a premium editorial aesthetic. The lighting is diffused and natural, highlighting her features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy07hczPC2MD4RMxPP0ccbHwqTfLtxcs2moUjNo00h1_obzhhsZrVX2aqwu9g_v7r1ZNeEKRvt2tOnOS8bn4OhGBzTAi8ylAXs5zWYojp62n9QTtkQAxgfUyGhKsJhboDxa0EcAOzJgwRUwdk9oBPuXmuffZ8gYVQ551mbE5ZR1H_vC1ERafrkyVu9dcm7hwv1Rf0JSA2XZq6gNgkqn7SJzULdXpfUxw2u5BDpu6XLEQ368aUKvaysyN58iF9esx1DLqKhXdgn1xXd"/>
+</div>
+<div class="flex-1 space-y-md">
+<div>
+<h1 class="font-headline-md text-headline-md text-primary">Elena_Style</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Curating minimalist fashion and quiet luxury pieces. Always looking for the perfect capsule wardrobe.</p>
+</div>
+<div class="flex flex-wrap justify-center md:justify-start gap-sm">
+<span class="px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant font-label-md text-label-md text-on-surface">Minimal</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant font-label-md text-label-md text-on-surface">Quiet Luxury</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant font-label-md text-label-md text-on-surface">Streetwear</span>
+</div>
+</div>
+<div class="flex gap-md md:self-center">
+<button class="px-6 py-2 rounded-lg bg-primary-container text-on-primary font-title-sm text-title-sm hover:opacity-90 transition-opacity">Edit Profile</button>
+<button class="px-4 py-2 rounded-lg border border-outline text-primary font-title-sm text-title-sm hover:bg-surface-container-low transition-colors md:hidden">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="grid grid-cols-3 gap-md bg-surface-container-lowest p-md rounded-xl shadow-[0_4px_20px_rgba(42,33,29,0.04)] border border-outline-variant/50">
+<div class="flex flex-col items-center justify-center p-sm">
+<span class="font-headline-md text-headline-md text-primary">42</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-xs">Rankings</span>
+</div>
+<div class="flex flex-col items-center justify-center p-sm border-l border-r border-outline-variant/30">
+<span class="font-headline-md text-headline-md text-primary">128</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-xs">Wishlist</span>
+</div>
+<div class="flex flex-col items-center justify-center p-sm">
+<span class="font-headline-md text-headline-md text-primary">56</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mt-xs">Saved</span>
+</div>
+</section>
+<!-- Preference Summary -->
+<section class="bg-surface-container-low p-md rounded-xl border border-outline-variant/30">
+<h2 class="font-title-sm text-title-sm text-primary mb-md">Style Preferences</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Budget Range</p>
+<p class="font-body-md text-body-md text-on-surface">$30 - $300</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">favorite</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Favorite Brands</p>
+<p class="font-body-md text-body-md text-on-surface">Uniqlo, COS, Arket</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Sections -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Top Ranked Lists -->
+<div class="md:col-span-8 space-y-md">
+<div class="flex justify-between items-end">
+<h2 class="font-title-sm text-title-sm text-primary">Top Ranked Lists</h2>
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex flex-col gap-sm">
+<div class="h-32 rounded-lg bg-surface-variant overflow-hidden">
+<img alt="Winter Coats" class="w-full h-full object-cover" data-alt="A neatly folded stack of premium wool winter coats in neutral tones like camel, grey, and navy. They are resting on a minimalist white surface in a brightly lit room. The lighting is soft and natural, emphasizing the texture of the fabric. The overall mood is sophisticated and organized, fitting a luxury fashion context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZcmzJBpJsFIKBApVHkmcKY7xMBPB0MjNY-i39N8PGaGt4PupjilxGs32JlPuctbOFfqY6s0jiTkHpEUObMn58d_anElpF5jG_-NudbN2KYzhQsxSKaGBOSFA9H1ODrGgROZEGn9INdYpkHCsSef2yiMhzHxHrhrs3w1VA6ydYLbN7qivxALPWQWgX2HarhFlQ5eHTwKoyntnPBV5bqXwpGEn0PkaZ2iRm2CnDaWuVtuis_xZ2mQ8HFo6FNc46pTICD8zxOg8BsZLC"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-primary">Essential Winter Coats</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">8 items ranked</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex flex-col gap-sm">
+<div class="h-32 rounded-lg bg-surface-variant overflow-hidden">
+<img alt="Minimalist Sneakers" class="w-full h-full object-cover" data-alt="A pair of clean, minimalist white leather sneakers placed perfectly on a smooth concrete floor. The background is simple and uncluttered, with a soft shadow cast by the shoes. The lighting is bright and even, highlighting the sleek design of the footwear. The aesthetic is modern and pristine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdesoyMKG1FXSG5Zxgl2tiGY-g6xG6_oNs906zFQnOPiw-hX_F5zuL1RknAq5in9Pim0fU2ET9qigHlgeQ7aul1c-XGQEUvthWFZmnomkk8YV8YDHFEgUC7soSOAiEMjonqO0RkEc4iRriinPqLcKrfKeVMQ4ZipysDg6mxuozIG934rCY5qWolcuEUdBF_K6V6ifH6QOhSwruzE3xfpTP9uVLxOG32iD0pXNDh6FIw0bPrS6x8NZOL9609UOq-eM3v-R48vNKHlav"/>
+</div>
+<h3 class="font-title-sm text-title-sm text-primary">Minimalist Sneakers</h3>
+<p class="font-label-md text-label-md text-on-surface-variant">5 items ranked</p>
+</div>
+</div>
+</div>
+<!-- Wishlist Previews -->
+<div class="md:col-span-4 space-y-md">
+<div class="flex justify-between items-end">
+<h2 class="font-title-sm text-title-sm text-primary">Wishlist Previews</h2>
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">View All</a>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-[0_4px_20px_rgba(42,33,29,0.04)] flex flex-col gap-sm">
+<div class="grid grid-cols-2 gap-sm">
+<div class="aspect-square rounded-lg bg-surface-variant overflow-hidden">
+<img alt="T-Shirt" class="w-full h-full object-cover" data-alt="A simple, high-quality white cotton t-shirt hanging on a light wooden hanger against a plain, warm off-white background. The lighting is soft and studio-like, focusing entirely on the garment. The image feels clean, essential, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgdVJ67uwwgqZEboiwcgTSGnX93nzwt1YrBe6yDtNFPfBUPK23e3VAsH25p1yfftzv6QipdEWMp-K9NtrjKobYL5Uk0WldgThg_l9F9ChOIsbFzWBfhWJ9WiE4cVLwPrdozck6KI8XOZqh-krqQ-JM9JsFm2qQYAnDF9gZF5nBVzVlHNluEJdhEnnr3lI9v6qQ1-r96XwZljTvS1kDy0ow-xnHf6nKKUzAofazOtmQzfqkTeI6_Gldu47adDYo7s2w66yAt3fO34f"/>
+</div>
+<div class="aspect-square rounded-lg bg-surface-variant overflow-hidden">
+<img alt="Bag" class="w-full h-full object-cover" data-alt="A structured, minimalist leather handbag in a deep espresso brown color, placed on a smooth stone pedestal. The background is a soft beige tone, providing a calm, elegant contrast. The lighting highlights the smooth texture and clean lines of the bag. The mood is luxurious and refined." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS58-dBZ0eTTZUqoOvOHpOtK8hr6VFeZxWXZArHl0WQLDSEDvg5eBp5BgFY7ciATR8Ce7-EwOOSPq2Ej6oha2QA4kixm9iLXJVUFqN7h7i351c00E6_vRb3YWF5xfsWkTAQbHkqbDbpx7vX5zUtahTZyX_NnFg14TNAw-Fdb8rQ1_-gtmPHEkD-P7bXyGWccXGgREi1eNOIq8fDlKAdRfAC2hoZeDTRQkdCD5cC0mWpeYNc_pvmSk7IztKwhfex-FmSasXL7osM_4G"/>
+</div>
+<div class="aspect-square rounded-lg bg-surface-variant overflow-hidden">
+<img alt="Watch" class="w-full h-full object-cover" data-alt="A close-up of a sleek, modern wristwatch with a silver metal mesh band and a minimalist white dial. It is resting on a dark gray slate surface, creating a sophisticated contrast. The lighting is sharp, catching the metallic reflections. The overall feel is timeless and elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk7dsvWQ11L5A53roEJAY-sAoMke8xpsymH2zIiOcFGvmYf_FNwTFLXKo_1HLdWbaLM-pM34gEsGXrJMJ4dEivdXhG0yqJmlp8zhyizda_-HK-52DMxi20UFnE-vACJrZJSAYmdy8rGcOVZyzUMQh2gUxrdNhWqByRc5eppMB8WBVj9wn1h_Usr5_rBHVc-CKW-XYIzuMA7vxP1R0NTxTgXgRUE1KKic2RcXlJxhJyxae-feiQoOPBuy1oHwF5RHsc2QK69amh3fOE"/>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container-low flex items-center justify-center border border-dashed border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant">+125 more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recently Compared -->
+<div class="md:col-span-12 space-y-md">
+<h2 class="font-title-sm text-title-sm text-primary">Recently Compared</h2>
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-[0_4px_20px_rgba(42,33,29,0.04)] overflow-x-auto">
+<div class="flex gap-md min-w-max">
+<!-- Compare Item 1 -->
+<div class="w-48 flex flex-col gap-sm">
+<div class="h-48 rounded-lg bg-surface-variant overflow-hidden">
+<img alt="Jacket 1" class="w-full h-full object-cover" data-alt="A classic black leather biker jacket displayed flat on a light grey textured background. The lighting is slightly dramatic, highlighting the silver zippers and the texture of the leather. The mood is edgy yet premium, typical of a modern fashion editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXur5Aoq6vE-gDq5vEKQA7RSZQ8enHv8zazVMjxTP-g5qoaAeMgYtMSaFvcTUSDqK6SpOrqcm8n-PYaulvSM4TrqdDvEXZVOIh5VkhqGp5WA2wYjiS7pEJA9FN9Dx67WDJKvwaWVvlBevQQmuskkOeKCQymAon0aG8ybSp_eM9Ne_FbJR194o2AR-HTMjWHRZPZKdpfseaCUUZPzEsG4mLvQLFWlpB00CDUaMtUSVMhzGVwYLXmY6JDibt7af2_JvI3gHUn6E0MRER"/>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-primary font-medium truncate">Acne Studios Leather</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">$1,200</p>
+</div>
+</div>
+<div class="flex items-center justify-center w-8">
+<span class="font-label-sm text-label-sm text-outline uppercase">VS</span>
+</div>
+<!-- Compare Item 2 -->
+<div class="w-48 flex flex-col gap-sm">
+<div class="h-48 rounded-lg bg-surface-variant overflow-hidden">
+<img alt="Jacket 2" class="w-full h-full object-cover" data-alt="A sleek, minimalist black vegan leather jacket draped over a wooden chair in a sunlit room. The background is a soft white wall with subtle shadows. The lighting is warm and inviting, emphasizing the clean lines of the garment. The aesthetic is contemporary and conscious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp-N5ST6g2wFko3_3wlmpymnBvNsBitZgEfwf0P3YxtNRbWkFI6cHUmSsNspyzT-liSDWw17Ddp7wkuz2yRnVE3wZ7xDCnX0H1mjOWdf4KRNAqeoCmepukjI3288AzZoL5-xJVlFdLbXAyAKB-MX0_yyF9ltDOm5GscvPULCVqO19AOXf2zY8fEUfr989P__WBmTrm_p-5DR-CxHAbOZRSvglHDwY6UoF1RgU04nvabd75E_vy8VhdC78LFwBGJhfcXiV0YasO57f7"/>
+</div>
+<div>
+<h4 class="font-body-md text-body-md text-primary font-medium truncate">Nanushka Vegan Leather</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">$650</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim z-50 shadow-sm border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold relative after:content-[''] after:absolute after:bottom-0 after:w-1 after:h-1 after:bg-secondary after:rounded-full hover:text-primary transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>
